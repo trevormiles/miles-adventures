@@ -1,1 +1,1 @@
-# miles-adventures
+# Miles Adventures
