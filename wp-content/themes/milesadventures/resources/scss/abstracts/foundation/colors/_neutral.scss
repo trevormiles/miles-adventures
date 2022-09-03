@@ -1,0 +1,16 @@
+$neutrals: (
+  000: #E9E3D8,
+  200: #C9BBB2,
+  400: #AFAD9C,
+  800: #756F64,
+  1000: #323232,
+);
+
+@function neutral($key) {
+  @if map-has-key($neutrals, $key) {
+    @return map-get($neutrals, $key);
+  }
+
+  @warn 'Unknown `#{$key}` in $neutrals.';
+  @return null;
+}

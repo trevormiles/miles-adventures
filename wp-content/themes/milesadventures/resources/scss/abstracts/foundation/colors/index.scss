@@ -1,0 +1,7 @@
+@forward 'neutral';
+@use 'neutral' as *;
+
+$color-white: neutral(000);
+$color-black: neutral(1000);
+
+$color-neutral-blue: #838588;

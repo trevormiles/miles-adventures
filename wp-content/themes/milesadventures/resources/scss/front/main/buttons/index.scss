@@ -1,0 +1,22 @@
+@use 'ma:foundation';
+@use 'ma:utility';
+
+.btn {
+  font-family: foundation.$font-family-heading;
+  font-weight: foundation.$font-weight-semi-bold;
+  padding: utility.rem(16px) utility.rem(30px);
+  background-color: foundation.$color-black;
+  text-decoration-line: none;
+  color: foundation.$color-white;
+  transition: 0.2s all ease;
+  display: inline-block;
+  border: 1px solid foundation.$color-black;
+  text-align: center;
+  cursor: pointer;
+
+  &:hover,
+  &:focus {
+    background-color: transparent;
+    border-color: foundation.$color-white;
+  }
+}

@@ -1,0 +1,66 @@
+@use 'ma:utility';
+@use 'ma:foundation';
+
+body {
+  font-family: foundation.$font-family-body;
+  color: foundation.$color-black;
+  font-size: 1rem;
+  line-height: 1.2;
+}
+
+h1,
+.h1,
+%h1,
+h2,
+.h2,
+%h2,
+h3,
+.h3,
+%h3 {
+  font-family: foundation.$font-family-heading;
+  font-weight: foundation.$font-weight-extra-bold;
+  letter-spacing: -1px;
+}
+
+h1,
+.h1,
+%h1 {
+  font-size: utility.rem(48px);
+  line-height: 1.2;
+  margin: 0 0 utility.rem(8px);
+
+  @include foundation.layout-breakpoint(b-3) {
+    font-size: utility.rem(64px);
+    margin: 0 0 utility.rem(12px);
+  }
+}
+
+h2,
+.h2,
+%h2 {
+  font-size: utility.rem(36px);
+  line-height: 1.2;
+  margin: 0 0 utility.rem(8px);
+
+  @include foundation.layout-breakpoint(b-3) {
+    font-size: utility.rem(48px);
+    margin: 0 0 utility.rem(10px);
+  }
+}
+
+h3,
+.h3,
+%h3 {
+  font-size: utility.rem(20px);
+  line-height: 1.2;
+  margin: 0 0 utility.rem(8px);
+
+  @include foundation.layout-breakpoint(b-3) {
+    font-size: utility.rem(24px);
+    margin: 0 0 utility.rem(10px);
+  }
+}
+
+p {
+  margin: 0 0 utility.rem(14px);
+}

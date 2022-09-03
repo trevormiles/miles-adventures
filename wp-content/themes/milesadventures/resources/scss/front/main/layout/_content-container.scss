@@ -1,0 +1,15 @@
+@use 'ma:foundation';
+@use '../abstracts';
+
+.content-container {
+  @extend %content-container;
+  max-width: foundation.layout-width(w-1);
+
+  &--2 {
+    max-width: foundation.layout-width(w-2);
+  }
+
+  &--3 {
+    max-width: foundation.layout-width(w-3);
+  }
+}

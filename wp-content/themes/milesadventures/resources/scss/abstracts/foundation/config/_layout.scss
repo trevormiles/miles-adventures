@@ -1,0 +1,23 @@
+$widths: (
+  w-1: #{1700/16}rem,
+  w-2: #{1500/16}rem,
+  w-3: #{1200/16}rem,
+) !default;
+
+$breakpoints: (
+  b-0: 0,
+  b-1: 480,
+  b-2: 768,
+  b-3: 992,
+  b-4: 1200,
+  b-5: 1400,
+  b-6: 1700,
+) !default;
+
+$side-padding: 1.25rem;
+
+$spacing: (
+  s-1: 1rem,
+  s-2: $side-padding,
+  s-3: 4rem,
+) !default;
