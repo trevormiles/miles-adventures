@@ -509,3 +509,11 @@ p {
 .text-uppercase {
   text-transform: uppercase;
 }
+
+.header-nav {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: #AFAD9C;
+}

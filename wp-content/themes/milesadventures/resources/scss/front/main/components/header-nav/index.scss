@@ -1,0 +1,9 @@
+@use 'ma:foundation';
+
+.header-nav {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: foundation.neutral(400);
+}
