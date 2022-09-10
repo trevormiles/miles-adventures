@@ -12,7 +12,3 @@
 </head>
 
 <body>
-    <header class="header-nav content-container">
-        <h1>Miles Adventures</h1>
-        <p>Coming soon!</p>
-    </header>
