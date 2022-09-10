@@ -22,6 +22,7 @@ wp-content/cache/supercache/*
 
 # milesadventures specific
 wp-content/themes/milesadventures/node_modules/*
+wp-content/themes/milesadventures/vendor/*
 
 # wp core (as of 4.9.5)
 /.htaccess
