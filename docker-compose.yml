@@ -1,6 +1,6 @@
 services:
   db:
-    image: mysql:5.7
+    image: mariadb:10.4-focal
     volumes:
       - db_data:/var/lib/mysql
     environment:
