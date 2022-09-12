@@ -538,10 +538,9 @@ p {
   text-transform: uppercase;
 }
 
-.header-nav {
+.coming-soon {
   height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  color: #AFAD9C;
 }

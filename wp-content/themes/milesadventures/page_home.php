@@ -5,7 +5,7 @@
 ?>
 
 <?php get_header(); ?>
-    <div class="header-nav content-container">
+    <div class="coming-soon content-container">
         <h1>Miles Adventures</h1>
         <p>Coming soon!</p>
     </div>
