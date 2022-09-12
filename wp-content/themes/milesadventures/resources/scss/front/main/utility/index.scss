@@ -46,6 +46,26 @@
   color: foundation.neutral(800);
 }
 
+.bg-neutral-000 {
+  background-color: foundation.neutral(000);
+}
+
+.bg-neutral-200 {
+  background-color: foundation.neutral(200);
+}
+
+.bg-neutral-400 {
+  background-color: foundation.neutral(400);
+}
+
+.bg-neutral-800 {
+  background-color: foundation.neutral(800);
+}
+
+.bg-neutral-blue {
+  background-color: foundation.$color-neutral-blue;
+}
+
 .space-top {
   margin-top: foundation.layout-spacing(s-1);
 

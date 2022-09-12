@@ -11,4 +11,8 @@
     <?php wp_head(); ?>
 </head>
 
-<body>
+<?php
+    $pageBackgroundColor = carbon_get_the_post_meta( 'crb_page_background_color' );
+?>
+
+<body<?= isset($pageBackgroundColor) ? ' class="' . $pageBackgroundColor . '"' : ''; ?>>

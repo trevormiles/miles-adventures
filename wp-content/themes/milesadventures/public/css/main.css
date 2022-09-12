@@ -310,6 +310,14 @@ template {
 }
 
 /**
+ * Set images to 100% width by default
+ */
+img {
+  width: 100%;
+  height: auto;
+}
+
+/**
  * Example:
  *
     h1 {
@@ -484,6 +492,26 @@ p {
 
 .neutral-800 {
   color: #756F64;
+}
+
+.bg-neutral-000 {
+  background-color: #E9E3D8;
+}
+
+.bg-neutral-200 {
+  background-color: #C9BBB2;
+}
+
+.bg-neutral-400 {
+  background-color: #AFAD9C;
+}
+
+.bg-neutral-800 {
+  background-color: #756F64;
+}
+
+.bg-neutral-blue {
+  background-color: #838588;
 }
 
 .space-top {

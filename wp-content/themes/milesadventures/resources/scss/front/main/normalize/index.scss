@@ -348,3 +348,12 @@ template {
 [hidden] {
   display: none;
 }
+
+/**
+ * Set images to 100% width by default
+ */
+
+img {
+  width: 100%;
+  height: auto;
+}
