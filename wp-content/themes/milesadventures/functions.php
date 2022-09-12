@@ -20,7 +20,6 @@ function crb_attach_custom_fields() {
             Field::make( 'complex', 'crb_gallery', __( 'Gallery' ) )
                 ->add_fields( array(
                     Field::make( 'image', 'crb_gallery_image', __( 'Image' ) ),
-                    Field::make( 'text', 'crb_gallery_image_caption', __( 'Caption' ) ),
                 ) )->setup_labels( array( 'plural_name' => 'Gallery Images', 'singular_name' => 'Gallery Image' ) )
         ));
 
