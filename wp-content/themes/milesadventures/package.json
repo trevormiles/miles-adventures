@@ -16,5 +16,11 @@
     "resolve-url-loader": "^5.0.0",
     "sass": "^1.54.6",
     "sass-loader": "^12.6.0"
+  },
+  "dependencies": {
+    "@bythepixel/component-loader": "^0.5.7",
+    "@bythepixel/in-view-src": "^0.1.1",
+    "@bythepixel/run-in-view": "^1.0.1",
+    "core-js": "^3.25.2"
   }
 }

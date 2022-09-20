@@ -13,7 +13,7 @@
 ?>
 
 <?php get_header(); ?>
-    <div class="content-container">
+    <div style="margin-top: 10rem;" class="content-container">
         <h1><?= carbon_get_the_post_meta( 'crb_hero_title' ); ?></h1>
         <img
             src="<?= $heroImage[0]; ?>"

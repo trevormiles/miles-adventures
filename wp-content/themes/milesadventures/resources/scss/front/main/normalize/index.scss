@@ -1,3 +1,5 @@
+@use 'ma:foundation';
+
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 
 /* Document
@@ -356,4 +358,14 @@ template {
 img {
   width: 100%;
   height: auto;
+}
+
+a {
+  text-decoration-line: none;
+  color: foundation.$color-black;
+  transition: 0.2s color ease;
+
+  &:hover {
+    color: foundation.neutral(800);
+  }
 }

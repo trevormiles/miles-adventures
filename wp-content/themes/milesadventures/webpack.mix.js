@@ -9,3 +9,4 @@ mix
   .js('resources/js/front/global/index.js', 'public/js/global.js')
   .sass('resources/scss/front/main/index.scss', 'public/css/main.css')
   .version()
+  .sourceMaps()
