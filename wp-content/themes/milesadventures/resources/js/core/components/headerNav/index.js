@@ -12,7 +12,6 @@ export default class HeaderNav extends Component {
     this.mainNavBreakpoint = '768px';
     this.addTriggerListener();
     this.addWindowResizeListener();
-    console.log('test');
   }
 
   addTriggerListener() {

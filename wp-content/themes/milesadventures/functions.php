@@ -74,10 +74,10 @@ function enqueue_webpack_file(string $filename, string $path, array $manifest, s
             $file = get_stylesheet_directory_uri() . ( "$manifest[$path]" );
             wp_register_style($filename, $file);
             wp_enqueue_style($filename);
-        break;
+            break;
         case 'js':
             $file = get_stylesheet_directory_uri() . ( "$manifest[$path]" );
-            wp_register_script($filename, $file);
+            wp_register_script($filename, $file, null, null, true);
             wp_enqueue_script($filename);
             break;
         default:
