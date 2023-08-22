@@ -18,7 +18,7 @@
 <header class="header-nav" data-comp-header-nav>
     <div class="content-container header-nav__container">
         <div class="header-nav__logo">
-            <div class="header-nav__logo-title">Miles Adventures</div>
+            <div class="header-nav__logo-title">Miles Out There</div>
             <div class="header-nav__logo-tagline">Natalie &amp; Trevor</div>
         </div>
         <nav class="header-nav__nav">
