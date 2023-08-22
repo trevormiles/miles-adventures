@@ -17,10 +17,10 @@
 
 <header class="header-nav" data-comp-header-nav>
     <div class="content-container header-nav__container">
-        <div class="header-nav__logo">
+        <a href="/" class="header-nav__logo">
             <div class="header-nav__logo-title">Miles Out There</div>
             <div class="header-nav__logo-tagline">Natalie &amp; Trevor</div>
-        </div>
+        </a>
         <nav class="header-nav__nav">
             <a href="/about" class="header-nav__link">About</a>
             <a href="/current" class="header-nav__link">Current</a>
