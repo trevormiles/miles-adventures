@@ -30,7 +30,7 @@
     padding: 1.5rem foundation.layout-spacing(s-2);
     position: relative;
 
-    @include foundation.layout-breakpoint(b-4) {
+    @include foundation.layout-breakpoint(b-3) {
       padding: 1.5rem foundation.layout-spacing(s-3);
     }
   }
