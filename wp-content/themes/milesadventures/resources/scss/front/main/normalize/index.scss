@@ -359,13 +359,3 @@ img {
   width: 100%;
   height: auto;
 }
-
-a {
-  text-decoration-line: none;
-  color: foundation.$color-black;
-  transition: 0.2s color ease;
-
-  &:hover {
-    color: foundation.neutral(800);
-  }
-}

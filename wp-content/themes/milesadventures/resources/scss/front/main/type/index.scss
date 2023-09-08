@@ -31,7 +31,7 @@ h1,
 
   @include foundation.layout-breakpoint(b-3) {
     font-size: utility.rem(64px);
-    margin: 0 0 utility.rem(12px);
+    margin: 0 0 utility.rem(20px);
   }
 }
 
@@ -62,5 +62,17 @@ h3,
 }
 
 p {
+  font-size: utility.rem(16px);
+  line-height: utility.rem(26px);
   margin: 0 0 utility.rem(14px);
+}
+
+a {
+  text-decoration-line: none;
+  color: foundation.$color-black;
+  transition: 0.2s color ease;
+
+  &:hover {
+    color: foundation.neutral(800);
+  }
 }

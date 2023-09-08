@@ -2,8 +2,11 @@
 @use 'ma:foundation';
 
 .header-nav {
+  @include utility.z-layer(layer-4);
+  position: relative;
+
   &__logo {
-    @include utility.z-layer(layer-2);
+    @include utility.z-layer(layer-4, 1);
     position: relative;
   }
 
@@ -36,6 +39,7 @@
   }
 
   &__nav {
+    @include utility.z-layer(layer-4);
     // Must correspond with computed mobile nav top height
     padding-top: 106px;
     flex-direction: column;
@@ -89,7 +93,7 @@
   }
 
   &__trigger {
-    @include utility.z-layer(layer-2);
+    @include utility.z-layer(layer-4, 1);
     display: block;
     position: relative;
     cursor: pointer;
@@ -140,7 +144,39 @@
       span,
       span::before,
       span::after {
-        background-color: foundation.$color-black;
+        background-color: foundation.neutral(800);
+      }
+    }
+  }
+
+  &--light {
+    .header-nav__logo {
+      color: foundation.$color-white;
+
+      &:hover {
+        color: foundation.neutral(100);
+      }
+    }
+
+    .header-nav__trigger span,
+    .header-nav__trigger span::before,
+    .header-nav__trigger span::after {
+      background-color: foundation.$color-white;
+    }
+
+    .header-nav__trigger:hover {
+      span,
+      span::before,
+      span::after {
+        background-color: foundation.neutral(100);
+      }
+    }
+
+    .header-nav__link {
+      color: foundation.$color-white;
+    
+      &:hover {
+        color: foundation.neutral(100);
       }
     }
   }
@@ -167,6 +203,34 @@
         &::after {
           transform: rotate(-45deg);
         }
+      }
+    }
+
+    .header-nav__logo {
+      color: foundation.$color-black;
+
+      &:hover {
+        color: foundation.neutral(800);
+      }
+    }
+
+    .header-nav__trigger:hover {
+      span::before,
+      span::after {
+        background-color: foundation.neutral(800);
+      }
+    }
+
+    .header-nav__trigger span::before,
+    .header-nav__trigger span::after {
+      background-color: foundation.$color-black;
+    }
+
+    .header-nav__link {
+      color: foundation.$color-black;
+
+      &:hover {
+        color: foundation.neutral(800);
       }
     }
   }

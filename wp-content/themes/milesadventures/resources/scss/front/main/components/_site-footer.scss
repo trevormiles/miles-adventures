@@ -48,4 +48,20 @@
       font-size: utility.rem(20px);
     }
   }
+
+  &__logo-title {
+    font-family: foundation.$font-family-heading;
+    font-weight: foundation.$font-weight-extra-bold;
+    letter-spacing: -1px;
+    font-size: utility.rem(30px);
+    white-space: nowrap;
+
+    @include foundation.layout-breakpoint(b-3) {
+      font-size: utility.rem(48px);
+    }
+  }
+
+  &__logo-tagline {
+    font-size: utility.rem(18px);
+  }
 }

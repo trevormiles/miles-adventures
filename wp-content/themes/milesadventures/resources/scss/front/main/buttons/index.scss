@@ -19,4 +19,13 @@
     background-color: transparent;
     border-color: foundation.$color-white;
   }
+
+  &--solid-hover {
+    &:hover,
+    &:focus {
+      color: foundation.$color-white;
+      background-color: foundation.neutral(900);
+      border-color: foundation.neutral(900);
+    }
+  }
 }

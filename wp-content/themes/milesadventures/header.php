@@ -16,7 +16,7 @@
 ?>
 
 <body<?= isset($pageBackgroundColor) ? ' class="' . $pageBackgroundColor . '"' : ''; ?>>
-    <header class="header-nav" data-comp-header-nav>
+    <header class="header-nav<?= is_page_template('page_home.php') ? ' header-nav--light' : '' ?>" data-comp-header-nav>
         <div class="header-nav__container">
             <a href="/" class="header-nav__logo">
                 <div class="header-nav__logo-title">Miles Out There</div>
