@@ -1,0 +1,34 @@
+@use 'ma:utility';
+@use 'ma:foundation';
+
+.item-preview-primary {
+  &__image-container {
+    width: 100%;
+    height: 24rem;
+    margin-bottom: 2.25rem;
+    display: block;
+    overflow: hidden;
+
+    @include foundation.layout-breakpoint(b-4) {
+      height: 28rem;
+    }
+
+    @include foundation.layout-breakpoint(b-5) {
+      height: 36.5rem;
+    }
+
+    &:hover,
+    &:focus-visible {
+      .item-preview-primary__image {
+        transform: scale(1.0325);
+      }
+    }
+  }
+
+  &__image {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    transition: 0.4s all ease;
+  }
+}

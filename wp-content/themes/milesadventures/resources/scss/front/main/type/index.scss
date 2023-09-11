@@ -40,11 +40,11 @@ h2,
 %h2 {
   font-size: utility.rem(36px);
   line-height: 1.2;
-  margin: 0 0 utility.rem(8px);
+  margin: 0 0 utility.rem(48px);
 
   @include foundation.layout-breakpoint(b-3) {
     font-size: utility.rem(48px);
-    margin: 0 0 utility.rem(10px);
+    margin: 0 0 utility.rem(60px);
   }
 }
 
@@ -53,18 +53,18 @@ h3,
 %h3 {
   font-size: utility.rem(20px);
   line-height: 1.2;
-  margin: 0 0 utility.rem(8px);
+  margin: 0 0 utility.rem(6px);
 
   @include foundation.layout-breakpoint(b-3) {
     font-size: utility.rem(24px);
-    margin: 0 0 utility.rem(10px);
+    margin: 0 0 utility.rem(6px);
   }
 }
 
 p {
   font-size: utility.rem(16px);
   line-height: utility.rem(26px);
-  margin: 0 0 utility.rem(14px);
+  margin: 0 0 utility.rem(28px);
 }
 
 a {

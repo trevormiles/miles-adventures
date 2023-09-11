@@ -10,14 +10,15 @@
   color: foundation.$color-white;
   transition: 0.2s all ease;
   display: inline-block;
-  border: 1px solid foundation.$color-black;
+  border: 2px solid foundation.$color-black;
   text-align: center;
   cursor: pointer;
 
   &:hover,
   &:focus {
     background-color: transparent;
-    border-color: foundation.$color-white;
+    border-color: foundation.$color-black;
+    color: foundation.$color-black;
   }
 
   &--solid-hover {

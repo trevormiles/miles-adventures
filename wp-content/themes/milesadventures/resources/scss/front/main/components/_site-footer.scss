@@ -2,10 +2,10 @@
 @use 'ma:foundation';
 
 .site-footer {
-  padding: 2rem foundation.layout-spacing(s-2);
+  padding: 0 foundation.layout-spacing(s-2) 2rem;
 
   @include foundation.layout-breakpoint(b-3) {
-    padding: 5.5rem foundation.layout-spacing(s-3);
+    padding: 0 foundation.layout-spacing(s-3) 5.5rem;
   }
 
   &__container {
