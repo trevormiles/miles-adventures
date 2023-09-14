@@ -13,8 +13,10 @@
 ?>
 
 <?php get_header(); ?>
-    <div style="margin-top: 10rem;" class="content-container">
-        <h1><?= carbon_get_the_post_meta( 'crb_hero_title' ); ?></h1>
+    <div class="content-container content-container--2 content-container--page-padding">
+        <div class="section-page-header">
+            <h1 class="section-page-header__heading"><?= carbon_get_the_post_meta( 'crb_hero_title' ); ?></h1>
+        </div>
         <img
             src="<?= $heroImage[0]; ?>"
             alt="<?= $heroImageAlt; ?>"

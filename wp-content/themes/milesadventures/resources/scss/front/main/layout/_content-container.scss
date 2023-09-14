@@ -12,4 +12,14 @@
   &--3 {
     max-width: foundation.layout-width(w-3);
   }
+
+  &--page-padding {
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+
+    @include foundation.layout-breakpoint(b-4) {
+      margin-top: 10rem;
+      margin-bottom: 10rem;
+    }
+  }
 }

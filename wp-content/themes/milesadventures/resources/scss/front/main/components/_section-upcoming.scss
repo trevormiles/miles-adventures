@@ -1,7 +1,7 @@
 @use 'ma:utility';
 @use 'ma:foundation';
 
-.section-latest {
+.section-upcoming {
   margin: 4rem 0;
 
   @include foundation.layout-breakpoint(b-3) {

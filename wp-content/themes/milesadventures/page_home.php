@@ -75,7 +75,7 @@ $adventures = [
     <section class="section-latest">
         <div class="content-container content-container--2">
             <h2>Latest adventures</h2>
-            <div class="section-latest__grid">
+            <div class="items-primary-grid">
                 <?php foreach ($adventures as $item) : ?>
                     <div class="item-preview-primary">
                         <a href="<?= $item['href']; ?>" class="item-preview-primary__image-container">
@@ -84,6 +84,20 @@ $adventures = [
                         <h3><?= $item['title']; ?></h3>
                         <p><?= $item['description']; ?></p>
                         <a href="<?= $item['href']; ?>" class="btn">Read more</a>
+                    </div>
+                <?php endforeach; ?>
+            </div>
+        </div>
+    </section>
+    <section class="section-upcoming">
+        <div class="content-container content-container--2">
+            <h2>Upcoming adventures</h2>
+            <div class="items-basic-grid">
+                <?php foreach ($adventures as $item) : ?>
+                    <div class="item-preview-basic">
+                        <p class="item-preview-basic__date"><?= $item['start_date'] . " - " . $item['start_date']; ?></p>
+                        <h3 class="item-preview-basic__title"><?= $item['title']; ?></h3>
+                        <p class="item-preview-basic__description"><?= $item['description']; ?></p>
                     </div>
                 <?php endforeach; ?>
             </div>

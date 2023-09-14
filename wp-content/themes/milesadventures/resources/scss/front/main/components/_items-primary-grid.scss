@@ -1,0 +1,17 @@
+@use 'ma:utility';
+@use 'ma:foundation';
+
+.items-primary-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  column-gap: 2.75rem;
+  row-gap: 3.5rem;
+
+  @include foundation.layout-breakpoint(b-2) {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @include foundation.layout-breakpoint(b-4) {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
