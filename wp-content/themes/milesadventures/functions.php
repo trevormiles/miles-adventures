@@ -15,8 +15,7 @@ function crb_attach_custom_fields() {
             Field::make( 'text', 'crb_hero_title', __( 'Hero Title' ) )->set_required( true ),
             Field::make( 'image', 'crb_hero_image', __( 'Hero Image' ) ),
             Field::make( 'text', 'crb_section_title', __( 'Section Title' ) )->set_required( true ),
-            Field::make( 'rich_text', 'crb_column_1_content', __( 'Section Column 1 Content' ) )->set_width( 50 )->set_required( true ),
-            Field::make( 'rich_text', 'crb_column_2_content', __( 'Section Column 2 Content' ) )->set_width( 50 )->set_help_text( 'Leave empty if only one column is desired' ),
+            Field::make( 'rich_text', 'crb_section_content', __( 'Section Content' ) )->set_width( 50 )->set_required( true ),
             Field::make( 'complex', 'crb_gallery', __( 'Gallery' ) )
                 ->add_fields( array(
                     Field::make( 'image', 'crb_gallery_image', __( 'Image' ) ),

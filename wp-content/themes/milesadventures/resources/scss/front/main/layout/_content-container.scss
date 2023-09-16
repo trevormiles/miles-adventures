@@ -17,7 +17,7 @@
     margin-top: 4rem;
     margin-bottom: 4rem;
 
-    @include foundation.layout-breakpoint(b-4) {
+    @include foundation.layout-breakpoint(b-5) {
       margin-top: 10rem;
       margin-bottom: 10rem;
     }

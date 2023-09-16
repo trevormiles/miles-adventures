@@ -37,8 +37,12 @@
   &__content {
     @include utility.z-layer(layer-1, 2);
     position: relative;
-    padding-bottom: 8.5rem;
+    padding-bottom: 4.5rem;
     width: 100%;
+
+    @include foundation.layout-breakpoint(b-3) {
+      padding-bottom: 8.5rem;
+    }
   }
 
   &__overline {

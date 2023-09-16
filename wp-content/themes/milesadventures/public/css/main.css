@@ -384,7 +384,7 @@ img {
   margin-bottom: 4rem;
   /* stylelint-disable-next-line max-nesting-depth */
 }
-@media screen and (min-width: 75em) {
+@media screen and (min-width: 87.5em) {
   .content-container--page-padding {
     margin-top: 10rem;
     margin-bottom: 10rem;
@@ -428,14 +428,14 @@ h2,
 .h2 {
   font-size: 2.25rem;
   line-height: 1.2;
-  margin: 0 0 3rem;
+  margin: 0 0 1.75rem;
   /* stylelint-disable-next-line max-nesting-depth */
 }
 @media screen and (min-width: 62em) {
   h2,
 .h2 {
     font-size: 3rem;
-    margin: 0 0 3.75rem;
+    margin: 0 0 2.5rem;
   }
 }
 
@@ -457,7 +457,7 @@ h3,
 p {
   font-size: 1rem;
   line-height: 1.625rem;
-  margin: 0 0 1.75rem;
+  margin: 0 0 1.5rem;
 }
 
 a {
@@ -807,8 +807,14 @@ a:hover {
 .home-hero__content {
   z-index: 27;
   position: relative;
-  padding-bottom: 8.5rem;
+  padding-bottom: 4.5rem;
   width: 100%;
+  /* stylelint-disable-next-line max-nesting-depth */
+}
+@media screen and (min-width: 62em) {
+  .home-hero__content {
+    padding-bottom: 8.5rem;
+  }
 }
 .home-hero__overline {
   font-size: 1.5rem;
@@ -1027,7 +1033,7 @@ a:hover {
 }
 @media screen and (min-width: 62em) {
   .section-page-header {
-    margin-bottom: 4.5rem;
+    margin-bottom: 4rem;
   }
 }
 .section-page-header__heading {
@@ -1037,4 +1043,40 @@ a:hover {
   margin-top: 0.65rem;
   margin-bottom: 0;
   max-width: 49.125rem;
+}
+
+.section-column-content {
+  margin: 2.5rem 0 4rem;
+  /* stylelint-disable-next-line max-nesting-depth */
+}
+@media screen and (min-width: 87.5em) {
+  .section-column-content {
+    margin: 8rem 0 11rem;
+    display: flex;
+    -moz-column-gap: 4rem;
+         column-gap: 4rem;
+  }
+}
+.section-column-content__column:first-child {
+  max-width: 45rem;
+  flex-shrink: 0;
+  /* stylelint-disable-next-line max-nesting-depth */
+}
+@media screen and (min-width: 87.5em) {
+  .section-column-content__column:first-child {
+    max-width: 30rem;
+  }
+}
+.section-column-content__column:last-child {
+  margin-top: 0.25rem;
+  flex-grow: 1;
+  /* stylelint-disable-next-line max-nesting-depth */
+}
+@media screen and (min-width: 62em) {
+  .section-column-content__column:last-child {
+    -moz-column-count: 2;
+         column-count: 2;
+    -moz-column-gap: 4rem;
+         column-gap: 4rem;
+  }
 }

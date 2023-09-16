@@ -8,7 +8,6 @@
     $heroImageId = carbon_get_the_post_meta( 'crb_hero_image' );
     $heroImage = wp_get_attachment_image_src($heroImageId, 'full');
     $heroImageAlt = get_post_meta($heroImageId, '_wp_attachment_image_alt', true);
-    $column2Content = apply_filters( 'the_content', carbon_get_the_post_meta( 'crb_column_2_content' ) );
     $galleryImages = carbon_get_the_post_meta( 'crb_gallery' );
 ?>
 
@@ -23,11 +22,14 @@
             width="<?= $heroImage[1]; ?>"
             height="<?= $heroImage[2]; ?>"
         >
-        <h2><?= carbon_get_the_post_meta( 'crb_section_title' ); ?></h2>
-        <div><?= apply_filters( 'the_content', carbon_get_the_post_meta( 'crb_column_1_content' ) ); ?></div>
-        <?php if ($column2Content) : ?>
-            <div><?= $column2Content; ?></div>
-        <?php endif; ?>
+        <section class="section-column-content">
+            <div class="section-column-content__column">
+                <h2><?= carbon_get_the_post_meta( 'crb_section_title' ); ?></h2>
+            </div>
+            <div class="section-column-content__column">
+                <?= apply_filters( 'the_content', carbon_get_the_post_meta('crb_section_content')); ?>
+            </div>
+        </section>
         <?php if (count($galleryImages) > 0) : ?>
             <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: 1.5rem;">
                 <?php foreach ($galleryImages as $galleryImage) : ?>
