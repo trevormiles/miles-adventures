@@ -1033,7 +1033,7 @@ a:hover {
 }
 @media screen and (min-width: 62em) {
   .section-page-header {
-    margin-bottom: 4rem;
+    margin-bottom: 3.5rem;
   }
 }
 .section-page-header__heading {

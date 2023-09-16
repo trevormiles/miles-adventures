@@ -83,3 +83,9 @@ function enqueue_webpack_file(string $filename, string $path, array $manifest, s
             break;
     }
 }
+
+/*------------------------------------*\
+	Custom Post Types
+\*------------------------------------*/
+
+require_once('custom-post-types/post-types.php');
