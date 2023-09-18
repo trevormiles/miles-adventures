@@ -1,0 +1,16 @@
+@use 'ma:utility';
+@use 'ma:foundation';
+
+.section-basic-gallery {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+
+  @include foundation.layout-breakpoint(b-2) {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @include foundation.layout-breakpoint(b-3) {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}

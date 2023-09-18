@@ -58,21 +58,23 @@
 ?>
 
 <?php get_header(); ?>
-    <div class="content-container content-container--2 content-container--page-padding">
-        <div class="section-page-header">
-            <h1 class="section-page-header__heading">Upcoming adventures</h1>
-            <p class="section-page-header__description">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            </p>
-        </div>
-        <div class="items-basic-grid">
-            <?php foreach ($adventures as $item) : ?>
-                <div class="item-preview-basic">
-                    <p class="item-preview-basic__date"><?= $item['start_date'] . " - " . $item['start_date']; ?></p>
-                    <h3 class="item-preview-basic__title"><?= $item['title']; ?></h3>
-                    <p class="item-preview-basic__description"><?= $item['description']; ?></p>
-                </div>
-            <?php endforeach; ?>
-        </div>
+
+<div class="content-container content-container--2 content-container--page-padding">
+    <div class="section-page-header">
+        <h1 class="section-page-header__heading">Upcoming adventures</h1>
+        <p class="section-page-header__description">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        </p>
     </div>
+    <div class="items-basic-grid">
+        <?php foreach ($adventures as $item) : ?>
+            <div class="item-preview-basic">
+                <p class="item-preview-basic__date"><?= $item['start_date'] . " - " . $item['start_date']; ?></p>
+                <h3 class="item-preview-basic__title"><?= $item['title']; ?></h3>
+                <p class="item-preview-basic__description"><?= $item['description']; ?></p>
+            </div>
+        <?php endforeach; ?>
+    </div>
+</div>
+
 <?php get_footer(); ?>

@@ -14,12 +14,23 @@ function crb_attach_custom_fields() {
         ->add_fields( array(
             Field::make( 'text', 'crb_hero_title', __( 'Hero Title' ) )->set_required( true ),
             Field::make( 'image', 'crb_hero_image', __( 'Hero Image' ) ),
-            Field::make( 'text', 'crb_section_title', __( 'Section Title' ) )->set_required( true ),
+            Field::make( 'text', 'crb_section_title', __( 'Section Title' ) )->set_width( 50 )->set_required( true ),
             Field::make( 'rich_text', 'crb_section_content', __( 'Section Content' ) )->set_width( 50 )->set_required( true ),
             Field::make( 'complex', 'crb_gallery', __( 'Gallery' ) )
                 ->add_fields( array(
                     Field::make( 'image', 'crb_gallery_image', __( 'Image' ) ),
                 ) )->setup_labels( array( 'plural_name' => 'Gallery Images', 'singular_name' => 'Gallery Image' ) )
+        ));
+
+    Container::make( 'post_meta', 'Adventure Info' )
+        ->where( 'post_type', '=', 'adventures' )
+        ->add_fields( array(
+            Field::make( 'date', 'crb_start_date', __( 'Start Date' ) )->set_required( true ),
+            Field::make( 'date', 'crb_end_date', __( 'End Date' ) )->set_required( true ),
+            Field::make( 'textarea', 'crb_description', __( 'Description' ) )->set_required( true ),
+            Field::make( 'image', 'crb_featured_image', __( 'Featured Image' ) )->set_required( true ),
+            Field::make( 'text', 'crb_section_title', __( 'Section Title' ) )->set_width( 50 )->set_required( true ),
+            Field::make( 'rich_text', 'crb_section_content', __( 'Section Content' ) )->set_width( 50 )->set_required( true ),
         ));
 
     Container::make( 'post_meta', 'Page Settings' )
@@ -89,3 +100,9 @@ function enqueue_webpack_file(string $filename, string $path, array $manifest, s
 \*------------------------------------*/
 
 require_once('custom-post-types/post-types.php');
+
+/*------------------------------------*\
+	Include utility functions
+\*------------------------------------*/
+
+include(get_template_directory() . '/utility_functions.php');
