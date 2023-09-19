@@ -3,57 +3,26 @@
   Template Name: Home
  */
 
+$adventures = new WP_Query(array(
+    'post_type' => 'adventures',
+    'orderby' => 'text_field',
+    'order' => 'asc',
+    'meta_query' => array(
+        'text_field' => array(
+            'key' => 'crb_start_date',
+            'compare' => 'EXISTS',
+        ),
+        array(
+            'key' => 'crb_end_date',
+            'compare' => '<',
+            'value' => date("Y-m-d"),
+        ),
+    ),
+    'post_status' => 'publish',
+    'posts_per_page' => -1,
+));
 
-$adventures = [
-    [
-        'title' => 'Portland',
-        'description' => 'Silver Falls State Park, Columbia River Gorge & Mount Hood Wilderness Area',
-        'href' => '/',
-        'image_url' => '/wp-content/uploads/2022/09/nat-trev-hurricane.jpg',
-        'start_date' => '2022-01-01',
-        'end_date' => '2022-02-01',
-    ],
-    [
-        'title' => 'Vancouver',
-        'description' => 'Golden Ears Provincial Park, Squamish, Pacific Rim National Park',
-        'href' => '/',
-        'image_url' => '/wp-content/uploads/2022/09/nat-trev-hurricane.jpg',
-        'start_date' => '2022-02-01',
-        'end_date' => '2022-03-01',
-    ],
-    [
-        'title' => 'Redwood National Park',
-        'description' => 'Redwood NP, Jedidiah Smith Redwoods, Del Norte Coast Redwoods, Prairie Creek Redwoods',
-        'href' => '/',
-        'image_url' => '/wp-content/uploads/2022/09/nat-trev-hurricane.jpg',
-        'start_date' => '2022-03-01',
-        'end_date' => '2022-04-01',
-    ],
-    [
-        'title' => 'Portland',
-        'description' => 'Silver Falls State Park, Columbia River Gorge & Mount Hood Wilderness Area',
-        'href' => '/',
-        'image_url' => '/wp-content/uploads/2022/09/nat-trev-hurricane.jpg',
-        'start_date' => '2022-01-01',
-        'end_date' => '2022-02-01',
-    ],
-    [
-        'title' => 'Vancouver',
-        'description' => 'Golden Ears Provincial Park, Squamish, Pacific Rim National Park',
-        'href' => '/',
-        'image_url' => '/wp-content/uploads/2022/09/nat-trev-hurricane.jpg',
-        'start_date' => '2022-02-01',
-        'end_date' => '2022-03-01',
-    ],
-    [
-        'title' => 'Redwood National Park',
-        'description' => 'Redwood NP, Jedidiah Smith Redwoods, Del Norte Coast Redwoods, Prairie Creek Redwoods',
-        'href' => '/',
-        'image_url' => '/wp-content/uploads/2022/09/nat-trev-hurricane.jpg',
-        'start_date' => '2022-03-01',
-        'end_date' => '2022-04-01',
-    ],
-];
+wp_reset_postdata();
 ?>
 
 <?php get_header(); ?>
@@ -73,36 +42,51 @@ $adventures = [
         </div>
     </div>
 </section>
-<section class="section-latest">
-    <div class="content-container content-container--2">
-        <h2>Latest adventures</h2>
-        <div class="items-primary-grid">
-            <?php foreach ($adventures as $item) : ?>
-                <div class="item-preview-primary">
-                    <a href="<?= $item['href']; ?>" class="item-preview-primary__image-container">
-                        <img src="<?= $item['image_url'] ?>" class="item-preview-primary__image">
-                    </a>
-                    <h3><?= $item['title']; ?></h3>
-                    <p><?= $item['description']; ?></p>
-                    <a href="<?= $item['href']; ?>" class="btn">Read more</a>
-                </div>
-            <?php endforeach; ?>
+<?php if ($adventures->have_posts()) : ?>
+    <section class="section-latest">
+        <div class="content-container content-container--2">
+            <h2>Latest adventures</h2>
+            <div class="items-primary-grid">
+                <?php while ($adventures->have_posts()) : ?>
+                    <?php
+                        $adventures->the_post();
+                        $description = carbon_get_the_post_meta('crb_description');
+                        $featured_image_id = carbon_get_the_post_meta('crb_featured_image');
+                        $featured_image_src = wp_get_attachment_image_src($featured_image_id, 'full')[0];
+                    ?>
+                    <div class="item-preview-primary">
+                        <a href="<?php the_permalink(); ?>" class="item-preview-primary__image-container">
+                            <img src="<?= $featured_image_src; ?>" class="item-preview-primary__image">
+                        </a>
+                        <h3><?php the_title(); ?></h3>
+                        <p><?= $description; ?></p>
+                        <a href="<?php the_permalink(); ?>" class="btn">Read more</a>
+                    </div>
+                <?php endwhile; ?>
+            </div>
         </div>
-    </div>
-</section>
+    </section>
+<?php endif; ?>
 <section class="section-upcoming">
     <div class="content-container content-container--2">
         <h2>Upcoming adventures</h2>
         <div class="items-basic-grid">
-            <?php foreach ($adventures as $item) : ?>
+            <?php while ($adventures->have_posts()) : ?>
+                <?php
+                    $adventures->the_post();
+                    $description = carbon_get_the_post_meta('crb_description');
+                ?>
                 <div class="item-preview-basic">
                     <p class="item-preview-basic__date">
-                        <?= formatAdventureDate($item['start_date'], $item['end_date']); ?>
+                        <?= formatAdventureDate(
+                            carbon_get_the_post_meta('crb_start_date'),
+                            carbon_get_the_post_meta('crb_end_date')
+                        ); ?>
                     </p>
-                    <h3 class="item-preview-basic__title"><?= $item['title']; ?></h3>
-                    <p class="item-preview-basic__description"><?= $item['description']; ?></p>
+                    <h3 class="item-preview-basic__title"><? the_title(); ?></h3>
+                    <p class="item-preview-basic__description"><?= $description; ?></p>
                 </div>
-            <?php endforeach; ?>
+            <?php endwhile; ?>
         </div>
     </div>
 </section>

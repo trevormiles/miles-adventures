@@ -69,7 +69,9 @@
     <div class="items-basic-grid">
         <?php foreach ($adventures as $item) : ?>
             <div class="item-preview-basic">
-                <p class="item-preview-basic__date"><?= $item['start_date'] . " - " . $item['start_date']; ?></p>
+                <p class="item-preview-basic__date">
+                    <?= formatAdventureDate($item['start_date'], $item['end_date']); ?>
+                </p>
                 <h3 class="item-preview-basic__title"><?= $item['title']; ?></h3>
                 <p class="item-preview-basic__description"><?= $item['description']; ?></p>
             </div>
