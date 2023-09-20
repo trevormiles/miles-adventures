@@ -5,56 +5,7 @@
 ?>
 
 <?php
-    $adventures = [
-        [
-            'title' => 'Portland',
-            'description' => 'Silver Falls State Park, Columbia River Gorge & Mount Hood Wilderness Area',
-            'href' => '/',
-            'image_url' => '/wp-content/uploads/2022/09/nat-trev-hurricane.jpg',
-            'start_date' => '2022-01-01',
-            'end_date' => '2022-02-01',
-        ],
-        [
-            'title' => 'Vancouver',
-            'description' => 'Golden Ears Provincial Park, Squamish, Pacific Rim National Park',
-            'href' => '/',
-            'image_url' => '/wp-content/uploads/2022/09/nat-trev-hurricane.jpg',
-            'start_date' => '2022-02-01',
-            'end_date' => '2022-03-01',
-        ],
-        [
-            'title' => 'Redwood National Park',
-            'description' => 'Redwood NP, Jedidiah Smith Redwoods, Del Norte Coast Redwoods, Prairie Creek Redwoods',
-            'href' => '/',
-            'image_url' => '/wp-content/uploads/2022/09/nat-trev-hurricane.jpg',
-            'start_date' => '2022-03-01',
-            'end_date' => '2022-04-01',
-        ],
-        [
-            'title' => 'Portland',
-            'description' => 'Silver Falls State Park, Columbia River Gorge & Mount Hood Wilderness Area',
-            'href' => '/',
-            'image_url' => '/wp-content/uploads/2022/09/nat-trev-hurricane.jpg',
-            'start_date' => '2022-01-01',
-            'end_date' => '2022-02-01',
-        ],
-        [
-            'title' => 'Vancouver',
-            'description' => 'Golden Ears Provincial Park, Squamish, Pacific Rim National Park',
-            'href' => '/',
-            'image_url' => '/wp-content/uploads/2022/09/nat-trev-hurricane.jpg',
-            'start_date' => '2022-02-01',
-            'end_date' => '2022-03-01',
-        ],
-        [
-            'title' => 'Redwood National Park',
-            'description' => 'Redwood NP, Jedidiah Smith Redwoods, Del Norte Coast Redwoods, Prairie Creek Redwoods',
-            'href' => '/',
-            'image_url' => '/wp-content/uploads/2022/09/nat-trev-hurricane.jpg',
-            'start_date' => '2022-03-01',
-            'end_date' => '2022-04-01',
-        ],
-    ];
+    $upcomingAdventures = getUpcomingAdventuresQuery();
 ?>
 
 <?php get_header(); ?>
@@ -66,17 +17,28 @@
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
         </p>
     </div>
-    <div class="items-basic-grid">
-        <?php foreach ($adventures as $item) : ?>
-            <div class="item-preview-basic">
-                <p class="item-preview-basic__date">
-                    <?= formatAdventureDate($item['start_date'], $item['end_date']); ?>
-                </p>
-                <h3 class="item-preview-basic__title"><?= $item['title']; ?></h3>
-                <p class="item-preview-basic__description"><?= $item['description']; ?></p>
-            </div>
-        <?php endforeach; ?>
-    </div>
+    <?php if ($upcomingAdventures->have_posts()) : ?>
+        <div class="items-basic-grid">
+            <?php while ($upcomingAdventures->have_posts()) : ?>
+                <?php
+                    $upcomingAdventures->the_post();
+                    $description = carbon_get_the_post_meta('crb_description');
+                ?>
+                <div class="item-preview-basic">
+                    <p class="item-preview-basic__date">
+                        <?= formatAdventureDate(
+                            carbon_get_the_post_meta('crb_start_date'),
+                            carbon_get_the_post_meta('crb_end_date')
+                        ); ?>
+                    </p>
+                    <h3 class="item-preview-basic__title"><? the_title(); ?></h3>
+                    <p class="item-preview-basic__description"><?= $description; ?></p>
+                </div>
+            <?php endwhile; ?>
+        </div>
+    <?php else : ?>
+        <h2>No upcoming adventures</h2>
+    <?php endif; ?>
 </div>
 
 <?php get_footer(); ?>

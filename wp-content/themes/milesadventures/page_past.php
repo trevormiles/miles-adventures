@@ -5,56 +5,7 @@
 ?>
 
 <?php
-    $adventures = [
-        [
-            'title' => 'Portland',
-            'description' => 'Silver Falls State Park, Columbia River Gorge & Mount Hood Wilderness Area',
-            'href' => '/',
-            'image_url' => '/wp-content/uploads/2022/09/nat-trev-hurricane.jpg',
-            'start_date' => '2022-01-01',
-            'end_date' => '2022-02-01',
-        ],
-        [
-            'title' => 'Vancouver',
-            'description' => 'Golden Ears Provincial Park, Squamish, Pacific Rim National Park',
-            'href' => '/',
-            'image_url' => '/wp-content/uploads/2022/09/nat-trev-hurricane.jpg',
-            'start_date' => '2022-02-01',
-            'end_date' => '2022-03-01',
-        ],
-        [
-            'title' => 'Redwood National Park',
-            'description' => 'Redwood NP, Jedidiah Smith Redwoods, Del Norte Coast Redwoods, Prairie Creek Redwoods',
-            'href' => '/',
-            'image_url' => '/wp-content/uploads/2022/09/nat-trev-hurricane.jpg',
-            'start_date' => '2022-03-01',
-            'end_date' => '2022-04-01',
-        ],
-        [
-            'title' => 'Portland',
-            'description' => 'Silver Falls State Park, Columbia River Gorge & Mount Hood Wilderness Area',
-            'href' => '/',
-            'image_url' => '/wp-content/uploads/2022/09/nat-trev-hurricane.jpg',
-            'start_date' => '2022-01-01',
-            'end_date' => '2022-02-01',
-        ],
-        [
-            'title' => 'Vancouver',
-            'description' => 'Golden Ears Provincial Park, Squamish, Pacific Rim National Park',
-            'href' => '/',
-            'image_url' => '/wp-content/uploads/2022/09/nat-trev-hurricane.jpg',
-            'start_date' => '2022-02-01',
-            'end_date' => '2022-03-01',
-        ],
-        [
-            'title' => 'Redwood National Park',
-            'description' => 'Redwood NP, Jedidiah Smith Redwoods, Del Norte Coast Redwoods, Prairie Creek Redwoods',
-            'href' => '/',
-            'image_url' => '/wp-content/uploads/2022/09/nat-trev-hurricane.jpg',
-            'start_date' => '2022-03-01',
-            'end_date' => '2022-04-01',
-        ],
-    ];
+    $pastAdventures = getPastAdventuresQuery();
 ?>
 
 <?php get_header(); ?>
@@ -67,16 +18,22 @@
         </p>
     </div>
     <div class="items-primary-grid">
-        <?php foreach ($adventures as $item) : ?>
+        <?php while ($pastAdventures->have_posts()) : ?>
+            <?php
+                $pastAdventures->the_post();
+                $description = carbon_get_the_post_meta('crb_description');
+                $featured_image_id = carbon_get_the_post_meta('crb_featured_image');
+                $featured_image_src = wp_get_attachment_image_src($featured_image_id, 'full')[0];
+            ?>
             <div class="item-preview-primary">
-                <a href="<?= $item['href']; ?>" class="item-preview-primary__image-container">
-                    <img src="<?= $item['image_url'] ?>" class="item-preview-primary__image">
+                <a href="<?php the_permalink(); ?>" class="item-preview-primary__image-container">
+                    <img src="<?= $featured_image_src; ?>" class="item-preview-primary__image">
                 </a>
-                <h3><?= $item['title']; ?></h3>
-                <p><?= $item['description']; ?></p>
-                <a href="<?= $item['href']; ?>" class="btn">Read more</a>
+                <h3><?php the_title(); ?></h3>
+                <p><?= $description; ?></p>
+                <a href="<?php the_permalink(); ?>" class="btn">Read more</a>
             </div>
-        <?php endforeach; ?>
+        <?php endwhile; ?>
     </div>
 </div>
 

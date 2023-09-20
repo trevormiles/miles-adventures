@@ -5,7 +5,7 @@
   display: grid;
   grid-template-columns: 1fr;
   column-gap: 2.75rem;
-  row-gap: 3.5rem;
+  row-gap: 3.25rem;
 
   @include foundation.layout-breakpoint(b-2) {
     grid-template-columns: 1fr 1fr;

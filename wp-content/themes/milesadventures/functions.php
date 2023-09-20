@@ -28,9 +28,9 @@ function crb_attach_custom_fields() {
             Field::make( 'date', 'crb_start_date', __( 'Start Date' ) )->set_required( true ),
             Field::make( 'date', 'crb_end_date', __( 'End Date' ) )->set_required( true ),
             Field::make( 'textarea', 'crb_description', __( 'Description' ) )->set_required( true ),
-            Field::make( 'image', 'crb_featured_image', __( 'Featured Image' ) )->set_required( true ),
-            Field::make( 'text', 'crb_section_title', __( 'Section Title' ) )->set_width( 50 )->set_required( true ),
-            Field::make( 'rich_text', 'crb_section_content', __( 'Section Content' ) )->set_width( 50 )->set_required( true ),
+            Field::make( 'image', 'crb_featured_image', __( 'Featured Image' ) ),
+            Field::make( 'text', 'crb_section_title', __( 'Section Title' ) )->set_width( 50 ),
+            Field::make( 'rich_text', 'crb_section_content', __( 'Section Content' ) )->set_width( 50 ),
         ));
 
     Container::make( 'post_meta', 'Page Settings' )

@@ -2,27 +2,11 @@
 /*
   Template Name: Home
  */
+?>
 
-$adventures = new WP_Query(array(
-    'post_type' => 'adventures',
-    'orderby' => 'text_field',
-    'order' => 'asc',
-    'meta_query' => array(
-        'text_field' => array(
-            'key' => 'crb_start_date',
-            'compare' => 'EXISTS',
-        ),
-        array(
-            'key' => 'crb_end_date',
-            'compare' => '<',
-            'value' => date("Y-m-d"),
-        ),
-    ),
-    'post_status' => 'publish',
-    'posts_per_page' => -1,
-));
-
-wp_reset_postdata();
+<?php
+    $pastAdventures = getPastAdventuresQuery();
+    $upcomingAdventures = getUpcomingAdventuresQuery();
 ?>
 
 <?php get_header(); ?>
@@ -42,14 +26,14 @@ wp_reset_postdata();
         </div>
     </div>
 </section>
-<?php if ($adventures->have_posts()) : ?>
+<?php if ($pastAdventures->have_posts()) : ?>
     <section class="section-latest">
         <div class="content-container content-container--2">
             <h2>Latest adventures</h2>
             <div class="items-primary-grid">
-                <?php while ($adventures->have_posts()) : ?>
+                <?php while ($pastAdventures->have_posts()) : ?>
                     <?php
-                        $adventures->the_post();
+                        $pastAdventures->the_post();
                         $description = carbon_get_the_post_meta('crb_description');
                         $featured_image_id = carbon_get_the_post_meta('crb_featured_image');
                         $featured_image_src = wp_get_attachment_image_src($featured_image_id, 'full')[0];
@@ -67,28 +51,30 @@ wp_reset_postdata();
         </div>
     </section>
 <?php endif; ?>
-<section class="section-upcoming">
-    <div class="content-container content-container--2">
-        <h2>Upcoming adventures</h2>
-        <div class="items-basic-grid">
-            <?php while ($adventures->have_posts()) : ?>
-                <?php
-                    $adventures->the_post();
-                    $description = carbon_get_the_post_meta('crb_description');
-                ?>
-                <div class="item-preview-basic">
-                    <p class="item-preview-basic__date">
-                        <?= formatAdventureDate(
-                            carbon_get_the_post_meta('crb_start_date'),
-                            carbon_get_the_post_meta('crb_end_date')
-                        ); ?>
-                    </p>
-                    <h3 class="item-preview-basic__title"><? the_title(); ?></h3>
-                    <p class="item-preview-basic__description"><?= $description; ?></p>
-                </div>
-            <?php endwhile; ?>
+<?php if ($upcomingAdventures->have_posts()) : ?>
+    <section class="section-upcoming">
+        <div class="content-container content-container--2">
+            <h2>Upcoming adventures</h2>
+            <div class="items-basic-grid">
+                <?php while ($upcomingAdventures->have_posts()) : ?>
+                    <?php
+                        $upcomingAdventures->the_post();
+                        $description = carbon_get_the_post_meta('crb_description');
+                    ?>
+                    <div class="item-preview-basic">
+                        <p class="item-preview-basic__date">
+                            <?= formatAdventureDate(
+                                carbon_get_the_post_meta('crb_start_date'),
+                                carbon_get_the_post_meta('crb_end_date')
+                            ); ?>
+                        </p>
+                        <h3 class="item-preview-basic__title"><? the_title(); ?></h3>
+                        <p class="item-preview-basic__description"><?= $description; ?></p>
+                    </div>
+                <?php endwhile; ?>
+            </div>
         </div>
-    </div>
-</section>
+    </section>
+<?php endif; ?>
 
 <?php get_footer(); ?>

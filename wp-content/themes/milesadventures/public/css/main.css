@@ -934,7 +934,7 @@ a:hover {
   grid-template-columns: 1fr;
   -moz-column-gap: 2.75rem;
        column-gap: 2.75rem;
-  row-gap: 3.5rem;
+  row-gap: 3.25rem;
   /* stylelint-disable-next-line max-nesting-depth */
   /* stylelint-disable-next-line max-nesting-depth */
 }
