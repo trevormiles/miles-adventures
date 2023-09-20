@@ -1118,3 +1118,22 @@ a:hover {
     grid-template-columns: 1fr 1fr 1fr;
   }
 }
+
+.section-no-posts {
+  background-color: #323232;
+  color: #E9E3D8;
+  text-align: center;
+  padding: 3rem 2rem;
+  /* stylelint-disable-next-line max-nesting-depth */
+}
+@media screen and (min-width: 62em) {
+  .section-no-posts {
+    padding: 6rem 2rem;
+  }
+}
+.section-no-posts__heading {
+  margin-bottom: 1.25rem;
+}
+.section-no-posts__description {
+  margin-bottom: 0;
+}

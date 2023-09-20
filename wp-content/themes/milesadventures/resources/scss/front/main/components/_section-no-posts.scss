@@ -1,0 +1,21 @@
+@use 'ma:utility';
+@use 'ma:foundation';
+
+.section-no-posts {
+  background-color: foundation.$color-black;
+  color: foundation.$color-white;
+  text-align: center;
+  padding: 3rem 2rem;
+
+  @include foundation.layout-breakpoint(b-3) {
+    padding: 6rem 2rem;
+  }
+
+  &__heading {
+    margin-bottom: 1.25rem;
+  }
+
+  &__description {
+    margin-bottom: 0;
+  }
+}

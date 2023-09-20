@@ -13,6 +13,9 @@
 
 <?php
     $pageBackgroundColor = carbon_get_the_post_meta( 'crb_page_background_color' );
+    $featuredAdventureArray = getFeaturedAdventure();
+    $featuredAdventure = $featuredAdventureArray[0];
+    $featuredAdventureType = $featuredAdventureArray[1];
 ?>
 
 <body<?= isset($pageBackgroundColor) ? ' class="' . $pageBackgroundColor . '"' : ''; ?>>
@@ -24,7 +27,11 @@
             </a>
             <nav class="header-nav__nav">
                 <a href="/about" class="header-nav__link">About</a>
-                <a href="/current" class="header-nav__link">Current</a>
+                <?php if ($featuredAdventure->have_posts()) : ?>
+                    <?php while ($featuredAdventure->have_posts()) : $featuredAdventure->the_post() ?>
+                        <a href="<?= the_permalink(); ?>" class="header-nav__link"><?= ucfirst($featuredAdventureType); ?></a>
+                    <?php endwhile; ?>
+                <?php endif; ?>
                 <a href="/past" class="header-nav__link">Past</a>
                 <a href="/upcoming" class="header-nav__link">Upcoming</a>
             </nav>

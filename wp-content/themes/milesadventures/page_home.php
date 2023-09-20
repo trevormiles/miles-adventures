@@ -7,25 +7,37 @@
 <?php
     $pastAdventures = getPastAdventuresQuery();
     $upcomingAdventures = getUpcomingAdventuresQuery();
+    $featuredAdventureArray = getFeaturedAdventure();
+    $featuredAdventure = $featuredAdventureArray[0];
+    $featuredAdventureType = $featuredAdventureArray[1];
 ?>
 
 <?php get_header(); ?>
 
-<section class="home-hero">
-    <div class="home-hero__image-container">
-        <img src="/wp-content/uploads/2022/09/nat-trev-hurricane.jpg" alt="Nat & Trev" class="home-hero__image">
-    </div>
-    <div class="home-hero__content">
-        <div class="content-container content-container--2">
-            <div class="home-hero__overline">Current Adventure</div>
-            <h1>Olympic National Park</h1>
-            <p class="home-hero__description">
-                Including the Hoh Rain Forest, Quinault Rain Forest, Sol Duc Falls, Lake Crescent & Hurricane Ridge.  
-            </p>
-            <a href="/" class="btn btn--solid-hover">Read More</a>
-        </div>
-    </div>
-</section>
+<?php if ($featuredAdventure->have_posts()) : ?>
+    <?php while ($featuredAdventure->have_posts()) : ?>
+        <?php
+            $featuredAdventure->the_post();
+            $description = carbon_get_the_post_meta('crb_description');
+            $featured_image_id = carbon_get_the_post_meta('crb_featured_image');
+            $featured_image_src = wp_get_attachment_image_src($featured_image_id, 'full')[0];
+        ?>
+
+        <section class="home-hero">
+            <div class="home-hero__image-container">
+                <img src="<?= $featured_image_src; ?>" alt="Nat & Trev" class="home-hero__image">
+            </div>
+            <div class="home-hero__content">
+                <div class="content-container content-container--2">
+                    <div class="home-hero__overline"><?= ucfirst($featuredAdventureType); ?> Adventure</div>
+                    <h1><?php the_title(); ?></h1>
+                    <p class="home-hero__description"><?= $description; ?></p>
+                    <a href="<?php the_permalink(); ?>" class="btn btn--solid-hover">Read More</a>
+                </div>
+            </div>
+        </section>
+    <?php endwhile; ?>
+<?php endif; ?>
 <?php if ($pastAdventures->have_posts()) : ?>
     <section class="section-latest">
         <div class="content-container content-container--2">
@@ -75,6 +87,18 @@
             </div>
         </div>
     </section>
+<?php endif; ?>
+<?php if (
+    !$featuredAdventure->have_posts()
+    && !$pastAdventures->have_posts()
+    && !$upcomingAdventures->have_posts()
+) : ?>
+    <div class="content-container content-container--2">
+        <section class="section-no-posts" style="margin: 5rem 0">
+            <h2 class="section-no-posts__heading">There are currently no past or upcoming adventures</h2>
+            <p class="section-no-posts__description">Check back in soon, we’ve always got something in the works!</p>
+        </section>
+    </div>
 <?php endif; ?>
 
 <?php get_footer(); ?>

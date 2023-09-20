@@ -1,3 +1,8 @@
+<?php
+    $featuredAdventureArray = getFeaturedAdventure();
+    $featuredAdventure = $featuredAdventureArray[0];
+    $featuredAdventureType = $featuredAdventureArray[1];
+?>
 </main>
 <footer class="site-footer">
     <div class="site-footer__container">
@@ -7,7 +12,11 @@
         </a>
         <nav class="site-footer__nav">
             <a href="/about" class="site-footer__link">About</a>
-            <a href="/current" class="site-footer__link">Current</a>
+            <?php if ($featuredAdventure->have_posts()) : ?>
+                <?php while ($featuredAdventure->have_posts()) : $featuredAdventure->the_post() ?>
+                    <a href="<?= the_permalink(); ?>" class="site-footer__link"><?= ucfirst($featuredAdventureType); ?></a>
+                <?php endwhile; ?>
+            <?php endif; ?>
             <a href="/past" class="site-footer__link">Past</a>
             <a href="/upcoming" class="site-footer__link">Upcoming</a>
         </nav>

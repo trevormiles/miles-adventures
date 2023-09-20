@@ -5,7 +5,7 @@
 ?>
 
 <?php
-    $upcomingAdventures = getUpcomingAdventuresQuery();
+    $upcomingAdventures = getUpcomingAdventuresQuery(-1);
 ?>
 
 <?php get_header(); ?>
@@ -37,7 +37,10 @@
             <?php endwhile; ?>
         </div>
     <?php else : ?>
-        <h2>No upcoming adventures</h2>
+        <section class="section-no-posts">
+            <h2 class="section-no-posts__heading">There are currently no upcoming adventures</h2>
+            <p class="section-no-posts__description">Check back in soon, we’ve always got something in the works!</p>
+        </section>
     <?php endif; ?>
 </div>
 
