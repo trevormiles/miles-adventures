@@ -73,9 +73,30 @@
     font-weight: foundation.$font-weight-semi-bold;
     padding: 0.875rem foundation.layout-spacing(s-2);
     border-bottom: 1px solid foundation.$color-black;
+    position: relative;
 
     &:first-child {
       border-top: 1px solid foundation.$color-black;
+    }
+
+    &::after {
+      content: '';
+      display: none;
+      width: 100%;
+      height: 2px;
+      background-color: foundation.neutral(900);
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      opacity: 0;
+      transition: 0.175s ease all;
+    }
+
+    &:hover,
+    &:focus {
+      &::after {
+        opacity: 0.75;
+      }
     }
 
     @include foundation.layout-breakpoint(b-2) {
@@ -84,6 +105,10 @@
 
       &:first-child {
         border-top: 0;
+      }
+
+      &::after {
+        display: block;
       }
     }
 
@@ -177,6 +202,10 @@
     
       &:hover {
         color: foundation.neutral(100);
+      }
+
+      &::after {
+        background-color: foundation.$color-white;
       }
     }
   }
