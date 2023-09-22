@@ -356,6 +356,14 @@ img {
   background-color: #4F4C4C;
   border-color: #4F4C4C;
 }
+.btn--reversed {
+  background-color: transparent;
+  color: #323232;
+}
+.btn--reversed:hover, .btn--reversed:focus {
+  background-color: #323232;
+  color: #E9E3D8;
+}
 
 .content-container {
   padding: 0 1.5rem;
@@ -1136,4 +1144,29 @@ a:hover {
 }
 .section-no-posts__description {
   margin-bottom: 0;
+}
+
+.heading-button-flex {
+  margin: 0 0 1.75rem;
+  /* stylelint-disable-next-line max-nesting-depth */
+}
+@media (min-width: 35.3125em) {
+  .heading-button-flex {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+@media screen and (min-width: 62em) {
+  .heading-button-flex {
+    margin: 0 0 2.5rem;
+  }
+}
+.heading-button-flex__heading {
+  margin-bottom: 0.75rem;
+}
+@media (min-width: 35.3125em) {
+  .heading-button-flex__heading {
+    margin-bottom: 0;
+  }
 }

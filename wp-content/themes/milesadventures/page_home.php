@@ -41,7 +41,10 @@
 <?php if ($pastAdventures->have_posts()) : ?>
     <section class="section-latest">
         <div class="content-container content-container--2">
-            <h2>Latest adventures</h2>
+            <div class="heading-button-flex">
+                <h2 class="heading-button-flex__heading">Latest adventures</h2>
+                <a href="/past" class="btn btn--reversed">See all</a>
+            </div>
             <div class="items-primary-grid">
                 <?php while ($pastAdventures->have_posts()) : ?>
                     <?php
@@ -66,7 +69,10 @@
 <?php if ($upcomingAdventures->have_posts()) : ?>
     <section class="section-upcoming">
         <div class="content-container content-container--2">
-            <h2>Upcoming adventures</h2>
+            <div class="heading-button-flex">
+                <h2 class="heading-button-flex__heading">Upcoming adventures</h2>
+                <a href="/upcoming" class="btn btn--reversed">See all</a>
+            </div>
             <div class="items-basic-grid">
                 <?php while ($upcomingAdventures->have_posts()) : ?>
                     <?php

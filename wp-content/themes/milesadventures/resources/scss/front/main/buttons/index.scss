@@ -29,4 +29,15 @@
       border-color: foundation.neutral(900);
     }
   }
+
+  &--reversed {
+    background-color: transparent;
+    color: foundation.$color-black;
+
+    &:hover,
+    &:focus {
+      background-color: foundation.$color-black;
+      color: foundation.$color-white;
+    }
+  }
 }
