@@ -12,10 +12,10 @@ function crb_attach_custom_fields() {
     Container::make( 'post_meta', 'About' )
         ->where( 'post_template', '=', 'page_about.php' )
         ->add_fields( array(
-            Field::make( 'text', 'crb_hero_title', __( 'Hero Title' ) )->set_required( true ),
+            Field::make( 'text', 'crb_hero_heading', __( 'Hero Heading' ) )->set_required( true ),
             Field::make( 'image', 'crb_hero_image', __( 'Hero Image' ) ),
-            Field::make( 'text', 'crb_section_title', __( 'Section Title' ) )->set_width( 50 )->set_required( true ),
-            Field::make( 'rich_text', 'crb_section_content', __( 'Section Content' ) )->set_width( 50 )->set_required( true ),
+            Field::make( 'text', 'crb_section_heading', __( 'Section Heading' ) )->set_width( 50 )->set_required( true ),
+            Field::make( 'rich_text', 'crb_section_description', __( 'Section Description' ) )->set_width( 50 )->set_required( true ),
             Field::make( 'complex', 'crb_gallery', __( 'Gallery' ) )
                 ->add_fields( array(
                     Field::make( 'image', 'crb_gallery_image', __( 'Image' ) ),
