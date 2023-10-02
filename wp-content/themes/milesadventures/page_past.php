@@ -24,7 +24,11 @@
                     $pastAdventures->the_post();
                     $description = carbon_get_the_post_meta('crb_description');
                     $featured_image_id = carbon_get_the_post_meta('crb_featured_image');
-                    $featured_image_src = wp_get_attachment_image_src($featured_image_id, 'full')[0];
+                    if ($featured_image_id) {
+                        $featured_image_src = wp_get_attachment_image_src($featured_image_id, 'full')[0];
+                    } else {
+                        $featured_image_src = "/wp-content/themes/milesadventures/public/img/hero-bg-placeholder.png";
+                    }
                 ?>
                 <div class="item-preview-primary">
                     <a href="<?php the_permalink(); ?>" class="item-preview-primary__image-container">
