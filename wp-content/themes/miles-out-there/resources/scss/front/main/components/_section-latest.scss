@@ -1,0 +1,10 @@
+@use 'ma:utility';
+@use 'ma:foundation';
+
+.section-latest {
+  margin: 4rem 0;
+
+  @include foundation.layout-breakpoint(b-3) {
+    margin: 11rem 0;
+  }
+}

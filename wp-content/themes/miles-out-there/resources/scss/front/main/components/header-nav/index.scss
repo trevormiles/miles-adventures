@@ -1,0 +1,266 @@
+@use 'ma:utility';
+@use 'ma:foundation';
+
+.header-nav {
+  @include utility.z-layer(layer-4);
+  position: relative;
+
+  &__logo {
+    @include utility.z-layer(layer-4, 1);
+    position: relative;
+  }
+
+  &__logo-title {
+    font-family: foundation.$font-family-heading;
+    font-weight: foundation.$font-weight-extra-bold;
+    letter-spacing: -1px;
+    font-size: utility.rem(30px);
+    white-space: nowrap;
+
+    @include foundation.layout-breakpoint(b-3) {
+      font-size: utility.rem(48px);
+    }
+  }
+
+  &__logo-tagline {
+    font-size: utility.rem(18px);
+  }
+
+  &__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.5rem foundation.layout-spacing(s-2);
+    position: relative;
+
+    @include foundation.layout-breakpoint(b-3) {
+      padding: 1.5rem foundation.layout-spacing(s-3);
+    }
+  }
+
+  &__nav {
+    @include utility.z-layer(layer-4);
+    // Must correspond with computed mobile nav top height
+    padding-top: 106px;
+    flex-direction: column;
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: foundation.$color-white;
+
+    @include foundation.layout-breakpoint(b-2) {
+      padding-top: 0;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 2.5rem;
+      position: static;
+      width: auto;
+      height: auto;
+      background-color: transparent;
+    }
+
+    @include foundation.layout-breakpoint(b-4) {
+      gap: 3.75rem;
+    }
+  }
+
+  &__link {
+    font-size: utility.rem(18px);
+    font-weight: foundation.$font-weight-semi-bold;
+    padding: 0.875rem foundation.layout-spacing(s-2);
+    border-bottom: 1px solid foundation.$color-black;
+    position: relative;
+
+    &:first-child {
+      border-top: 1px solid foundation.$color-black;
+    }
+
+    &::after {
+      content: '';
+      display: none;
+      width: 100%;
+      height: 2px;
+      background-color: foundation.neutral(900);
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      opacity: 0;
+      transition: 0.175s ease all;
+    }
+
+    &:hover,
+    &:focus {
+      &::after {
+        opacity: 0.75;
+      }
+    }
+
+    @include foundation.layout-breakpoint(b-2) {
+      border-bottom: 0;
+      padding: 0;
+
+      &:first-child {
+        border-top: 0;
+      }
+
+      &::after {
+        display: block;
+      }
+    }
+
+    @include foundation.layout-breakpoint(b-3) {
+      font-size: utility.rem(20px);
+    }
+  }
+
+  &__trigger {
+    @include utility.z-layer(layer-4, 1);
+    display: block;
+    position: relative;
+    cursor: pointer;
+    border: 0;
+    background-color: transparent;
+    border-radius: 0.375rem;
+    margin-left: auto;
+    width: utility.rem(40px);
+    height: utility.rem(40px);
+
+    @include foundation.layout-breakpoint(b-2) {
+      display: none;
+    }
+
+    span {
+      background-color: foundation.$color-black;
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
+      margin: 0 auto;
+      transition: 0.2s all ease;
+      width: utility.rem(22px);
+      height: utility.rem(3px);
+
+      &::before,
+      &::after {
+        background-color: foundation.$color-black;
+        display: block;
+        position: absolute;
+        right: 0;
+        transition: 0.2s all ease;
+        content: '';
+        width: utility.rem(22px);
+        height: utility.rem(3px);
+      }
+
+      &::before {
+        margin-top: utility.rem(-8px);
+      }
+
+      &::after {
+        margin-top: utility.rem(8px);
+      }
+    }
+
+    &:hover {
+      span,
+      span::before,
+      span::after {
+        background-color: foundation.neutral(800);
+      }
+    }
+  }
+
+  &--light {
+    .header-nav__logo {
+      color: foundation.$color-white;
+
+      &:hover {
+        color: foundation.neutral(100);
+      }
+    }
+
+    .header-nav__trigger span,
+    .header-nav__trigger span::before,
+    .header-nav__trigger span::after {
+      background-color: foundation.$color-white;
+    }
+
+    .header-nav__trigger:hover {
+      span,
+      span::before,
+      span::after {
+        background-color: foundation.neutral(100);
+      }
+    }
+
+    .header-nav__link {
+      color: foundation.$color-white;
+    
+      &:hover {
+        color: foundation.neutral(100);
+      }
+
+      &::after {
+        background-color: foundation.$color-white;
+      }
+    }
+  }
+
+  &--active {
+    .header-nav__nav {
+      display: flex;
+    }
+
+    .header-nav__trigger {
+      span {
+        background-color: transparent;
+        cursor: pointer;
+
+        &::before,
+        &::after {
+          margin-top: 0;
+        }
+
+        &::before {
+          transform: rotate(45deg);
+        }
+
+        &::after {
+          transform: rotate(-45deg);
+        }
+      }
+    }
+
+    .header-nav__logo {
+      color: foundation.$color-black;
+
+      &:hover {
+        color: foundation.neutral(800);
+      }
+    }
+
+    .header-nav__trigger:hover {
+      span::before,
+      span::after {
+        background-color: foundation.neutral(800);
+      }
+    }
+
+    .header-nav__trigger span::before,
+    .header-nav__trigger span::after {
+      background-color: foundation.$color-black;
+    }
+
+    .header-nav__link {
+      color: foundation.$color-black;
+
+      &:hover {
+        color: foundation.neutral(800);
+      }
+    }
+  }
+}

@@ -1,0 +1,26 @@
+@use 'ma:utility';
+@use 'ma:foundation';
+
+.item-preview-basic {
+  position: relative;
+  padding: 1.25rem 0 1.25rem 2.5rem;
+
+  &::after {
+    content: '';
+    display: block;
+    width: 2px;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: foundation.$color-black;
+  }
+
+  &__date {
+    margin-bottom: 0.3rem;
+  }
+
+  &__description {
+    margin-bottom: 0;
+  }
+}

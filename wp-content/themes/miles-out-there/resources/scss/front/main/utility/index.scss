@@ -1,0 +1,95 @@
+@use 'ma:foundation';
+
+.mobile-only {
+  @include foundation.layout-breakpoint(b-2) {
+    display: none;
+  }
+}
+
+.mobile-excluded {
+  @include foundation.layout-breakpoint(b-0, ((map-get(foundation.$breakpoints, "b-2") - 1) / 1px)) {
+    display: none;
+  }
+}
+
+.object-fit-cover {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.font-weight-regular {
+  font-weight: foundation.$font-weight-regular;
+}
+
+.font-weight-extra-bold {
+  font-weight: foundation.$font-weight-extra-bold;
+}
+
+.color-black {
+  color: foundation.$color-black;
+}
+
+.color-white {
+  color: foundation.$color-white;
+}
+
+.neutral-200 {
+  color: foundation.neutral(200);
+}
+
+.neutral-400 {
+  color: foundation.neutral(400);
+}
+
+.neutral-800 {
+  color: foundation.neutral(800);
+}
+
+.bg-neutral-000 {
+  background-color: foundation.neutral(000);
+}
+
+.bg-neutral-200 {
+  background-color: foundation.neutral(200);
+}
+
+.bg-neutral-400 {
+  background-color: foundation.neutral(400);
+}
+
+.bg-neutral-800 {
+  background-color: foundation.neutral(800);
+}
+
+.bg-neutral-blue {
+  background-color: foundation.$color-neutral-blue;
+}
+
+.space-top {
+  margin-top: foundation.layout-spacing(s-1);
+
+  &--small {
+    margin-top: 0.5rem;
+  }
+
+  &--medium {
+    margin-top: 1.5rem;
+  }
+
+  &--large {
+    margin-top: 3rem;
+  }
+
+  &--x-large {
+    margin-top: foundation.layout-spacing(s-2);
+  }
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-uppercase {
+  text-transform: uppercase;
+}

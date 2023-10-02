@@ -1,0 +1,17 @@
+@use 'ma:utility';
+@use 'ma:foundation';
+
+.section-featured-image {
+  height: max(70vw, 23rem);
+  width: 100%;
+
+  @include foundation.layout-breakpoint(b-3) {
+    height: min(50vw, 53.25rem);
+  }
+
+  &__image {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+  }
+}
