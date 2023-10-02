@@ -32,6 +32,7 @@
                         <a href="<?= the_permalink(); ?>" class="header-nav__link"><?= ucfirst($featuredAdventureType); ?></a>
                     <?php endwhile; ?>
                 <?php endif; ?>
+                <?php wp_reset_postdata(); ?>
                 <a href="/past" class="header-nav__link">Past</a>
                 <a href="/upcoming" class="header-nav__link">Upcoming</a>
             </nav>
