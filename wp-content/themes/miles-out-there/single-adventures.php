@@ -39,15 +39,19 @@
         >
     </div>
     <section class="section-column-content">
-        <div class="section-column-content__column">
+        <div class="section-column-content__column section-column-content__column--first">
             <div class="section-column-content__overline">
                 <?= formatAdventureDate($startDate, $endDate); ?>
             </div>
-            <h2><?= $sectionTitle; ?></h2>
+            <?php if ($sectionTitle) : ?>
+                <h2><?= $sectionTitle; ?></h2>
+            <?php endif; ?>
         </div>
-        <div class="section-column-content__column">
-            <?= apply_filters( 'the_content', $sectionContent); ?>
-        </div>
+        <?php if ($sectionContent) : ?>
+            <div class="section-column-content__column section-column-content__column--last">
+                <?= apply_filters( 'the_content', $sectionContent); ?>
+            </div>
+        <?php endif; ?>
     </section>
 </div>
 
