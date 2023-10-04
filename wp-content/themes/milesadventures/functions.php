@@ -13,7 +13,7 @@ function crb_attach_custom_fields() {
         ->where( 'post_template', '=', 'page_about.php' )
         ->add_fields( array(
             Field::make( 'text', 'crb_hero_heading', __( 'Hero Heading' ) )->set_required( true ),
-            Field::make( 'image', 'crb_hero_image', __( 'Hero Image' ) ),
+            Field::make( 'image', 'crb_hero_image', __( 'Hero Image' ) )->set_required( true ),
             Field::make( 'text', 'crb_section_heading', __( 'Section Heading' ) )->set_width( 50 )->set_required( true ),
             Field::make( 'rich_text', 'crb_section_description', __( 'Section Description' ) )->set_width( 50 )->set_required( true ),
             Field::make( 'complex', 'crb_gallery', __( 'Gallery' ) )
