@@ -1,5 +1,5 @@
 {
-  "name": "milesadventures",
+  "name": "miles-out-there",
   "description": "Essential front-end dependencies for Miles Out There.",
   "scripts": {
     "dev": "npm run development",
