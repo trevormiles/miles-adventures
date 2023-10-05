@@ -32,10 +32,10 @@
         >
     </div>
     <section class="section-column-content">
-        <div class="section-column-content__column">
+        <div class="section-column-content__column section-column-content__column--first">
             <h2><?= $sectionTitle; ?></h2>
         </div>
-        <div class="section-column-content__column">
+        <div class="section-column-content__column section-column-content__column--last">
             <?= apply_filters( 'the_content', $sectionContent); ?>
         </div>
     </section>

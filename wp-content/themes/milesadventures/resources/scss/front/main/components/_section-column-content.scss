@@ -11,7 +11,7 @@
   }
 
   &__column {
-    &:first-child {
+    &--first {
       max-width: 45rem;
       flex-shrink: 0;
 
@@ -20,7 +20,7 @@
       }
     }
 
-    &:last-child {
+    &--last {
       margin-top: 0.25rem;
       flex-grow: 1;
 
