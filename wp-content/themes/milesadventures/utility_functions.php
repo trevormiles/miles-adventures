@@ -9,7 +9,7 @@ function formatAdventureDate(string $startDate, string $endDate) {
     return $startDateFormatted . " - " . $endDateFormatted . ", " . $formattedYear;
 }
 
-function getPastAdventuresQuery($quantity = 3) {
+function getPastAdventuresQuery(int $quantity = 3) {
     return new WP_Query(array(
         'post_type' => 'adventures',
         'orderby' => 'text_field',
@@ -30,7 +30,7 @@ function getPastAdventuresQuery($quantity = 3) {
     ));
 }
 
-function getUpcomingAdventuresQuery($quantity = 6) {
+function getUpcomingAdventuresQuery(int $quantity = 6) {
     return new WP_Query(array(
         'post_type' => 'adventures',
         'orderby' => 'text_field',
@@ -102,6 +102,15 @@ function getFeaturedAdventure() {
         $featuredAdventureType = "current";
     }
     return [$featuredAdventure, $featuredAdventureType];
+}
+
+function fallbackImageOnNull($image_id)
+{
+    if (!$image_id) {
+        return carbon_get_theme_option('crb_global_fallback_image');
+    }
+
+    return $image_id;
 }
 
 ?>

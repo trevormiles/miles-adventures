@@ -6,8 +6,6 @@
 
 <?php
     $heroImageId = carbon_get_the_post_meta( 'crb_hero_image' );
-    $heroImage = wp_get_attachment_image_src($heroImageId, 'full');
-    $heroImageAlt = get_post_meta($heroImageId, '_wp_attachment_image_alt', true);
     $galleryImages = carbon_get_the_post_meta( 'crb_gallery' );
     $heroTitle = carbon_get_the_post_meta( 'crb_hero_heading' );
     $sectionTitle = carbon_get_the_post_meta( 'crb_section_heading' );
@@ -23,13 +21,14 @@
         </h1>
     </div>
     <div class="section-featured-image">
-        <img
-            src="<?= $heroImage[0]; ?>"
-            alt="<?= $heroImageAlt; ?>"
-            width="<?= $heroImage[1]; ?>"
-            height="<?= $heroImage[2]; ?>"
-            class="section-featured-image__image"
-        >
+        <?= 
+            wp_get_attachment_image(
+                $heroImageId,
+                'full',
+                false,
+                array('class' => 'section-featured-image__image')
+            );
+        ?>
     </div>
     <section class="section-column-content">
         <div class="section-column-content__column section-column-content__column--first">

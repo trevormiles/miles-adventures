@@ -1,19 +1,5 @@
 <?php
-    $featured_image_id = carbon_get_the_post_meta( 'crb_featured_image' );
-    $isFallbackImage = false;
-    if ($featured_image_id) {
-        $featured_image = wp_get_attachment_image_src($featured_image_id, 'full');
-        $featured_image_src = $featured_image[0];
-        $featured_image_width = $featured_image[1];
-        $featured_image_height = $featured_image[2];
-        $featured_image_alt = get_post_meta($featured_image_id, '_wp_attachment_image_alt', true);
-    } else {
-        $featured_image_src = "/wp-content/themes/milesadventures/public/img/hero-bg-placeholder.png";
-        $featured_image_width = "952";
-        $featured_image_height = "540";
-        $featured_image_alt = "A pattern of pine trees laid out in a grid";
-        $isFallbackImage = true;
-    }
+    $featuredImageId = fallbackImageOnNull(carbon_get_the_post_meta('crb_featured_image'));
     $theTitle = get_the_title();
     $description = carbon_get_the_post_meta( 'crb_description' );
     $startDate = carbon_get_the_post_meta( 'crb_start_date' );
@@ -30,13 +16,14 @@
         <p class="section-page-header__description"><?= $description; ?></p>
     </div>
     <div class="section-featured-image">
-        <img
-            src="<?= $featured_image_src; ?>"
-            alt="<?= $featured_image_alt; ?>"
-            width="<?= $featured_image_width; ?>"
-            height="<?= $featured_image_height; ?>"
-            class="section-featured-image__image"
-        >
+        <?= 
+            wp_get_attachment_image(
+                $featuredImageId,
+                'full',
+                false,
+                array('class' => 'section-featured-image__image')
+            );
+        ?>
     </div>
     <section class="section-column-content">
         <div class="section-column-content__column section-column-content__column--first">

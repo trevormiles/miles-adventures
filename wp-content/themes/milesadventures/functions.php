@@ -45,6 +45,11 @@ function crb_attach_custom_fields() {
                     'bg-neutral-blue' => 'Neutral Blue',
                 ) )->set_default_value( 'bg-neutral-400' )
         ));
+
+    Container::make( 'theme_options', 'Theme Options' )
+        ->add_fields( array(
+            Field::make( 'image', 'crb_global_fallback_image')
+        ));
 }
 
 add_action( 'after_setup_theme', 'crb_load' );
