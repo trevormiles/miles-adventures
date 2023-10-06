@@ -24,10 +24,6 @@ wp-content/cache/supercache/*
 wp-content/themes/milesadventures/node_modules/*
 wp-content/themes/milesadventures/vendor/*
 
-# miles-out-there specific
-wp-content/themes/miles-out-there/node_modules/*
-wp-content/themes/miles-out-there/vendor/*
-
 # wp core (as of 4.9.5)
 /.htaccess
 /db-config.php
