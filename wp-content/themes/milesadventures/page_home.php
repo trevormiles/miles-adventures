@@ -21,7 +21,6 @@
             $description = carbon_get_the_post_meta('crb_description');
             $featuredImageId = fallbackImageOnNull(carbon_get_the_post_meta('crb_featured_image'));
         ?>
-
         <section class="home-hero">
             <div class="home-hero__image-container">
                 <?= 
@@ -33,7 +32,7 @@
                     );
                 ?>
             </div>
-            <div class="home-hero__content">
+            <div class="home-hero__content" data-aos="fade-up">
                 <div class="content-container content-container--2">
                     <div class="home-hero__overline"><?= ucfirst($featuredAdventureType); ?> Adventure</div>
                     <h1><?php the_title(); ?></h1>
@@ -48,17 +47,18 @@
     <section class="section-latest">
         <div class="content-container content-container--2">
             <div class="heading-button-flex">
-                <h2 class="heading-button-flex__heading">Latest adventures</h2>
-                <a href="/past" class="btn btn--reversed">See all</a>
+                <h2 class="heading-button-flex__heading" data-aos="fade-up">Latest adventures</h2>
+                <a href="/past" class="btn btn--reversed" data-aos="fade-up" data-aos-delay="300">See all</a>
             </div>
             <div class="items-primary-grid">
+                <?php $index = 0; ?>
                 <?php while ($pastAdventures->have_posts()) : ?>
                     <?php
                         $pastAdventures->the_post();
                         $description = carbon_get_the_post_meta('crb_description');
                         $featuredImageId = fallbackImageOnNull(carbon_get_the_post_meta('crb_featured_image'));
                     ?>
-                    <div class="item-preview-primary">
+                    <div class="item-preview-primary" data-aos="fade-up" data-aos-delay="<?= ($index % 3) * 300 ?>">
                         <a href="<?php the_permalink(); ?>" class="item-preview-primary__image-container">
                             <?= 
                                 wp_get_attachment_image(
@@ -73,6 +73,7 @@
                         <p><?= $description; ?></p>
                         <a href="<?php the_permalink(); ?>" class="btn">Read more</a>
                     </div>
+                    <?php $index++; ?>
                 <?php endwhile; ?>
             </div>
         </div>
@@ -82,16 +83,17 @@
     <section class="section-upcoming">
         <div class="content-container content-container--2">
             <div class="heading-button-flex">
-                <h2 class="heading-button-flex__heading">Upcoming adventures</h2>
-                <a href="/upcoming" class="btn btn--reversed">See all</a>
+                <h2 class="heading-button-flex__heading" data-aos="fade-up">Upcoming adventures</h2>
+                <a href="/upcoming" class="btn btn--reversed" data-aos="fade-up" data-aos-delay="300">See all</a>
             </div>
             <div class="items-basic-grid">
+                <?php $index = 0; ?>
                 <?php while ($upcomingAdventures->have_posts()) : ?>
                     <?php
                         $upcomingAdventures->the_post();
                         $description = carbon_get_the_post_meta('crb_description');
                     ?>
-                    <div class="item-preview-basic">
+                    <div class="item-preview-basic" data-aos="fade-up" data-aos-delay="<?= ($index % 3) * 300 ?>">
                         <p class="item-preview-basic__date">
                             <?= formatAdventureDate(
                                 carbon_get_the_post_meta('crb_start_date'),
@@ -101,6 +103,7 @@
                         <h3 class="item-preview-basic__title"><? the_title(); ?></h3>
                         <p class="item-preview-basic__description"><?= $description; ?></p>
                     </div>
+                    <?php $index++; ?>
                 <?php endwhile; ?>
             </div>
         </div>
