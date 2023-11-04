@@ -32,7 +32,7 @@
                     );
                 ?>
             </div>
-            <div class="home-hero__content" data-aos="fade-up">
+            <div class="home-hero__content">
                 <div class="content-container content-container--2">
                     <div class="home-hero__overline"><?= ucfirst($featuredAdventureType); ?> Adventure</div>
                     <h1><?php the_title(); ?></h1>

@@ -26,7 +26,7 @@
         ?>
     </div>
     <section class="section-column-content">
-        <div class="section-column-content__column section-column-content__column--first">
+        <div class="section-column-content__column section-column-content__column--first" data-aos="fade-up">
             <div class="section-column-content__overline">
                 <?= formatAdventureDate($startDate, $endDate); ?>
             </div>
@@ -35,7 +35,11 @@
             <?php endif; ?>
         </div>
         <?php if ($sectionContent) : ?>
-            <div class="section-column-content__column section-column-content__column--last">
+            <div
+                class="section-column-content__column section-column-content__column--last"
+                data-aos="fade-up"
+                data-aos-delay="300"
+            >
                 <?= apply_filters( 'the_content', $sectionContent); ?>
             </div>
         <?php endif; ?>

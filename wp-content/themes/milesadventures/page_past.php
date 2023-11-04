@@ -19,13 +19,14 @@
     </div>
     <?php if ($pastAdventures->have_posts()) : ?>
         <div class="items-primary-grid">
+            <?php $index = 0; ?>
             <?php while ($pastAdventures->have_posts()) : ?>
                 <?php
                     $pastAdventures->the_post();
                     $description = carbon_get_the_post_meta('crb_description');
                     $featuredImageId = fallbackImageOnNull(carbon_get_the_post_meta('crb_featured_image'));
                 ?>
-                <div class="item-preview-primary">
+                <div class="item-preview-primary" data-aos="fade-up" data-aos-delay="<?= ($index % 3) * 300 ?>">
                     <a href="<?php the_permalink(); ?>" class="item-preview-primary__image-container">
                         <?= 
                             wp_get_attachment_image(
@@ -40,6 +41,7 @@
                     <p><?= $description; ?></p>
                     <a href="<?php the_permalink(); ?>" class="btn">Read more</a>
                 </div>
+                <?php $index++; ?>
             <?php endwhile; ?>
         </div>
     <?php else : ?>

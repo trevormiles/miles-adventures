@@ -31,24 +31,30 @@
         ?>
     </div>
     <section class="section-column-content">
-        <div class="section-column-content__column section-column-content__column--first">
+        <div class="section-column-content__column section-column-content__column--first" data-aos="fade-up">
             <h2><?= $sectionTitle; ?></h2>
         </div>
-        <div class="section-column-content__column section-column-content__column--last">
+        <div
+            class="section-column-content__column section-column-content__column--last"
+            data-aos="fade-up"
+            data-aos-delay="300"
+        >
             <?= apply_filters( 'the_content', $sectionContent); ?>
         </div>
     </section>
     <?php if (count($galleryImages) > 0) : ?>
         <div class="section-basic-gallery">
-            <?php foreach ($galleryImages as $galleryImage) : ?>
-                <?= 
-                    wp_get_attachment_image(
-                        $galleryImage['crb_gallery_image'],
-                        'large',
-                        false,
-                        array('class' => 'gallery-image')
-                    );
-                ?>
+            <?php foreach ($galleryImages as $index => $galleryImage) : ?>
+                <div data-aos="fade-up" data-aos-delay="<?= ($index % 3) * 300 ?>">
+                    <?= 
+                        wp_get_attachment_image(
+                            $galleryImage['crb_gallery_image'],
+                            'large',
+                            false,
+                            array('class' => 'gallery-image')
+                        );
+                    ?>
+                </div>
             <?php endforeach; ?>
         </div>
     <?php endif; ?>
