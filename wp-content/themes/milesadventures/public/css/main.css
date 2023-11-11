@@ -398,6 +398,97 @@ img {
   }
 }
 
+@font-face {
+  font-family: "Inter";
+  src: url(/public/fonts/Inter-Thin.ttf?97a5cc3ca8d3b35a4239202f1f5f9cf5) format("ttf");
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Inter";
+  src: url(/public/fonts/Inter-ExtraLight.ttf?fbcf1d9ad9d7bac9f6deba88c69fc3f0) format("ttf");
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Inter";
+  src: url(/public/fonts/Inter-Light.ttf?02850f2802778858073313a327b0455d) format("ttf");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Inter";
+  src: url(/public/fonts/Inter-Regular.ttf?9ca9ba81e9dcaa12b3a1b141bb39c857) format("ttf");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Inter";
+  src: url(/public/fonts/Inter-Medium.ttf?3f7acfe50aad7ad685484df2f44c6e75) format("ttf");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Inter";
+  src: url(/public/fonts/Inter-SemiBold.ttf?6058d3da655fb35169c21cf19a0e6170) format("ttf");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Inter";
+  src: url(/public/fonts/Inter-Bold.ttf?0eaf807b1cf0eceabe0f9c3e2727baf2) format("ttf");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Inter";
+  src: url(/public/fonts/Inter-ExtraBold.ttf?4164cfba15dbca5f37aa5e20c45b5abf) format("ttf");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Inter";
+  src: url(/public/fonts/Inter-Black.ttf?83d81b169bedf85385f29875683d34d6) format("ttf");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Space Mono";
+  src: url(/public/fonts/SpaceMono-Regular.ttf?8a2aa304d0bd5e41d18643aa787a9dd7) format("ttf");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Space Mono";
+  src: url(/public/fonts/SpaceMono-Italic.ttf?0daff04789950b311b31deaff97719d1) format("ttf");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Space Mono";
+  src: url(/public/fonts/SpaceMono-Bold.ttf?056ac3ebe5f65cb5c4ace8ffa72698ee) format("ttf");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Space Mono";
+  src: url(/public/fonts/SpaceMono-BoldItalic.ttf?973410642f95c92e505b21ee0382a69e) format("ttf");
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
 body {
   font-family: "Space Mono", monospace;
   color: #323232;
