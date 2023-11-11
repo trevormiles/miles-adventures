@@ -77,6 +77,12 @@ function hide_editor() {
 	Enqueue frontend assets
 \*-------------------------------------------------*/
 
+function enqueue_main_stylesheet() {
+    wp_enqueue_style('main_stylesheet', get_stylesheet_uri());
+}
+
+add_action( 'wp_enqueue_scripts', 'enqueue_main_stylesheet' );
+
 $manifest = json_decode(file_get_contents(get_stylesheet_directory() . "/mix-manifest.json"), true);
 
 add_action( 'wp_enqueue_scripts', function() use ( $manifest ) { enqueue_webpack_file( 'global.js', '/public/js/global.js', $manifest, 'js' ); } );

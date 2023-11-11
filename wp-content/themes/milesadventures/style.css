@@ -5,3 +5,110 @@ Author: Trevor Miles
 Description: A custom theme for Miles Out There
 Version: 1.0.0
 */
+
+/* ------------------------ Font faces ------------------------ */
+/* Inter */
+@font-face {
+  font-family: 'Inter';
+  src: url("./public/fonts/Inter-Thin.ttf");
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url("./public/fonts/Inter-ExtraLight.ttf");
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url("./public/fonts/Inter-Light.ttf");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url("./public/fonts/Inter-Regular.ttf");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url("./public/fonts/Inter-Medium.ttf");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url("./public/fonts/Inter-SemiBold.ttf");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url("./public/fonts/Inter-Bold.ttf");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url("./public/fonts/Inter-ExtraBold.ttf");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url("./public/fonts/Inter-Black.ttf");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Space Mono */
+@font-face {
+  font-family: 'Space Mono';
+  src: url("./public/fonts/SpaceMono-Regular.ttf");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Space Mono';
+  src: url("./public/fonts/SpaceMono-Italic.ttf");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Space Mono';
+  src: url("./public/fonts/SpaceMono-Bold.ttf");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Space Mono';
+  src: url("./public/fonts/SpaceMono-BoldItalic.ttf");
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
