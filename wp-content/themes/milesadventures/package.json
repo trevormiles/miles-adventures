@@ -21,6 +21,7 @@
     "@bythepixel/component-loader": "^0.5.7",
     "@bythepixel/in-view-src": "^0.1.1",
     "@bythepixel/run-in-view": "^1.0.1",
+    "aos": "^3.0.0-beta.6",
     "core-js": "^3.25.2"
   }
 }
