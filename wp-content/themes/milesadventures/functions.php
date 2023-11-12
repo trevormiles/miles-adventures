@@ -9,7 +9,7 @@ use Carbon_Fields\Field;
 
 add_action( 'carbon_fields_register_fields', 'crb_attach_custom_fields' );
 function crb_attach_custom_fields() {
-    Container::make( 'post_meta', 'About' )
+    Container::make( 'post_meta', 'Page Content' )
         ->where( 'post_template', '=', 'page_about.php' )
         ->add_fields( array(
             Field::make( 'text', 'crb_hero_heading', __( 'Hero Heading' ) )->set_required( true ),
@@ -20,6 +20,18 @@ function crb_attach_custom_fields() {
                 ->add_fields( array(
                     Field::make( 'image', 'crb_gallery_image', __( 'Image' ) ),
                 ) )->setup_labels( array( 'plural_name' => 'Gallery Images', 'singular_name' => 'Gallery Image' ) )
+        ));
+
+    Container::make( 'post_meta', 'Page Content' )
+        ->where( 'post_template', '=', 'page_past.php' )
+        ->add_fields( array(
+            Field::make( 'textarea', 'crb_past_description', __( 'Description' ) ),
+        ));
+
+    Container::make( 'post_meta', 'Page Content' )
+        ->where( 'post_template', '=', 'page_upcoming.php' )
+        ->add_fields( array(
+            Field::make( 'textarea', 'crb_upcoming_description', __( 'Description' ) ),
         ));
 
     Container::make( 'post_meta', 'Adventure Info' )

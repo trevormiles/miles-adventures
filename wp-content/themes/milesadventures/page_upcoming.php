@@ -6,6 +6,7 @@
 
 <?php
     $upcomingAdventures = getUpcomingAdventuresQuery(-1);
+    $pageDescription = carbon_get_the_post_meta('crb_upcoming_description');
 ?>
 
 <?php get_header(); ?>
@@ -13,9 +14,11 @@
 <div class="content-container content-container--2 content-container--page-padding">
     <div class="section-page-header">
         <h1 class="section-page-header__heading">Upcoming adventures</h1>
-        <p class="section-page-header__description">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-        </p>
+        <?php if ($pageDescription) : ?>
+            <p class="section-page-header__description">
+                <?= $pageDescription; ?>
+            </p>
+        <?php endif; ?>
     </div>
     <?php if ($upcomingAdventures->have_posts()) : ?>
         <div class="items-basic-grid">
