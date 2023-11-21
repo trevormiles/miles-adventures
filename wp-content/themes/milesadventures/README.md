@@ -1,5 +1,7 @@
 # Miles Out There
 
+#### Author: Trevor Miles
+
 #### Video Demo:  <URL HERE>
 
 #### Live website URL: [milesoutthere.com](https://milesoutthere.com/)
