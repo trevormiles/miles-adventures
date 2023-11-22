@@ -35,7 +35,7 @@
                             carbon_get_the_post_meta('crb_end_date')
                         ); ?>
                     </p>
-                    <h3 class="item-preview-basic__title"><? the_title(); ?></h3>
+                    <h3 class="item-preview-basic__title"><?= get_the_title(); ?></h3>
                     <p class="item-preview-basic__description"><?= $description; ?></p>
                 </div>
                 <?php $index++; ?>
