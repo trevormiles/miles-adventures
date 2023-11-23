@@ -2,7 +2,7 @@
 
 #### Author: Trevor Miles
 
-#### Video Demo:  [https://youtu.be/hORrwUs6xaw](https://youtu.be/hORrwUs6xaw)
+#### Video Demo:  [https://www.youtube.com/watch?v=hORrwUs6xaw](https://www.youtube.com/watch?v=hORrwUs6xaw)
 
 #### Live Website URL: [milesoutthere.com](https://milesoutthere.com/)
 
