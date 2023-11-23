@@ -2,9 +2,9 @@
 
 #### Author: Trevor Miles
 
-#### Video Demo:  <URL HERE>
+#### Video Demo:  [https://youtu.be/hORrwUs6xaw](https://youtu.be/hORrwUs6xaw)
 
-#### Live website URL: [milesoutthere.com](https://milesoutthere.com/)
+#### Live Website URL: [milesoutthere.com](https://milesoutthere.com/)
 
 #### Description:
 A custom WordPress theme to be used for my personal travel website. My wife and I are currently traveling around the USA attempting to visit all 63 national parks. This custom WordPress theme serves as the active theme on my live site at [milesoutthere.com](https://milesoutthere.com/).
