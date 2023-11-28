@@ -9,6 +9,8 @@ module.exports = {
       "@Utility$": path.resolve(__dirname, "resources/js/core/utility"),
       "@Constants": path.resolve(__dirname, "resources/js/core/constants"),
       "@Front": path.resolve(__dirname, "resources/js/front"),
+      "Photoswipe": path.resolve(__dirname, "node_modules/photoswipe"),
+      "PhotoswipeDynamicCaptionPlugin": path.resolve(__dirname, "node_modules/photoswipe-dynamic-caption-plugin")
     },
   },
 };

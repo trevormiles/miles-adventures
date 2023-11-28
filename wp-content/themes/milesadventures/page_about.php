@@ -43,17 +43,32 @@
         </div>
     </section>
     <?php if (count($galleryImages) > 0) : ?>
-        <div class="section-basic-gallery">
+        <div class="section-basic-gallery" data-comp-gallery-lightbox>
             <?php foreach ($galleryImages as $index => $galleryImage) : ?>
-                <div data-aos="fade-up" data-aos-delay="<?= ($index % 3) * 300 ?>">
-                    <?= 
-                        wp_get_attachment_image(
-                            $galleryImage['crb_gallery_image'],
-                            'large',
-                            false,
-                            array('class' => 'gallery-image')
-                        );
-                    ?>
+                <?php
+                    $fullSizeImage = wp_get_attachment_image_src($galleryImage['crb_gallery_image'], "full"); 
+                    $imageSrc = $fullSizeImage[0];
+                    $imageWidth = $fullSizeImage[1];
+                    $imageHeight = $fullSizeImage[2];
+                    $imageSrcSet = wp_get_attachment_image_srcset($galleryImage['crb_gallery_image']);
+                ?>
+                <div data-aos="fade-up" data-aos-delay="<?= ($index % 3) * 300 ?>" data-gallery-lightbox-item>
+                    <a
+                        href="<?= $imageSrc; ?>"
+                        data-pswp-width="<?= $imageWidth; ?>"
+                        data-pswp-height="<?= $imageHeight; ?>"
+                        data-pswp-srcset="<?= $imageSrcSet; ?>"
+                        target="_blank"
+                    >
+                        <?= 
+                            wp_get_attachment_image(
+                                $galleryImage['crb_gallery_image'],
+                                'large',
+                                false,
+                            );
+                        ?>
+                    </a>
+                    <div class="pswp-caption-content"><b>Lorem ipsum dolor (1933)</b><br>Color photograph<br>12 x 10</div>
                 </div>
             <?php endforeach; ?>
         </div>
