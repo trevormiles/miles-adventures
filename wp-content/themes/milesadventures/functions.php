@@ -43,6 +43,16 @@ function crb_attach_custom_fields() {
             Field::make( 'image', 'crb_featured_image', __( 'Featured Image' ) ),
             Field::make( 'text', 'crb_section_title', __( 'Section Title' ) )->set_width( 50 ),
             Field::make( 'rich_text', 'crb_section_content', __( 'Section Content' ) )->set_width( 50 ),
+            Field::make( 'complex', 'crb_gallery_sections', __( 'Gallery Sections' ) )
+                ->add_fields( array(
+                    Field::make( 'text', 'crb_gallery_section_title', __( 'Section Title' ) ),
+                    Field::make( 'textarea', 'crb_gallery_section_description', __( 'Section Description' ) ),
+                    Field::make( 'complex', 'crb_gallery_section', __( 'Gallery' ) )
+                        ->add_fields( array(
+                            Field::make( 'image', 'crb_gallery_section_image', __( 'Image' ) )->set_required( true )->set_width( 50 ),
+                            Field::make( 'textarea', 'crb_gallery_image_caption', __( 'Caption' ) )->set_width( 50 ),
+                        ) )->setup_labels( array( 'plural_name' => 'Gallery Images', 'singular_name' => 'Gallery Image' ) )
+                ) )->setup_labels( array( 'plural_name' => 'Gallery Sections', 'singular_name' => 'Gallery Section' ) )
         ));
 
     Container::make( 'post_meta', 'Page Settings' )

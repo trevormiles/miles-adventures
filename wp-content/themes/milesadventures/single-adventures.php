@@ -6,6 +6,7 @@
     $endDate = carbon_get_the_post_meta( 'crb_end_date' );
     $sectionTitle = carbon_get_the_post_meta( 'crb_section_title' );
     $sectionContent = carbon_get_the_post_meta('crb_section_content');
+    $gallerySections = carbon_get_the_post_meta('crb_gallery_sections');
 ?>
 
 <?php get_header(); ?>
@@ -44,6 +45,62 @@
             </div>
         <?php endif; ?>
     </section>
+    <?php if (count($gallerySections) > 0) : ?>
+        <div>
+            <?php foreach ($gallerySections as $gallerySection) : ?>
+                <?php if ($gallerySection['crb_gallery_section_title']) : ?>
+                    <h2 data-aos="fade-up"><?= $gallerySection['crb_gallery_section_title'] ?></h2>
+                <?php endif; ?>
+                <?php if ($gallerySection['crb_gallery_section_description']) : ?>
+                    <p data-aos="fade-up"><?= $gallerySection['crb_gallery_section_description'] ?></p>
+                <?php endif; ?>
+                <?php if (count($gallerySection['crb_gallery_section']) > 0) : ?>
+                    <div class="section-basic-gallery" data-comp-gallery-lightbox>
+                        <?php foreach ($gallerySection['crb_gallery_section'] as $index => $galleryImage) : ?>
+                            <?php
+                                $fullSizeImage = wp_get_attachment_image_src(
+                                    $galleryImage['crb_gallery_section_image'],
+                                    "full"
+                                ); 
+                                $imageSrc = $fullSizeImage[0];
+                                $imageWidth = $fullSizeImage[1];
+                                $imageHeight = $fullSizeImage[2];
+                                $imageSrcSet = wp_get_attachment_image_srcset(
+                                    $galleryImage['crb_gallery_section_image']
+                                );
+                            ?>
+                            <div
+                                data-aos="fade-up"
+                                data-aos-delay="<?= ($index % 3) * 300 ?>"
+                                data-gallery-lightbox-item
+                            >
+                                <a
+                                    href="<?= $imageSrc; ?>"
+                                    data-pswp-width="<?= $imageWidth; ?>"
+                                    data-pswp-height="<?= $imageHeight; ?>"
+                                    data-pswp-srcset="<?= $imageSrcSet; ?>"
+                                    target="_blank"
+                                >
+                                    <?= 
+                                        wp_get_attachment_image(
+                                            $galleryImage['crb_gallery_section_image'],
+                                            'large',
+                                            false,
+                                        );
+                                    ?>
+                                </a>
+                                <?php if ($galleryImage['crb_gallery_image_caption']) : ?>
+                                    <div class="pswp-caption-content">
+                                        <?= $galleryImage['crb_gallery_image_caption']; ?>
+                                    </div>
+                                <?php endif; ?>
+                            </div>
+                        <?php endforeach; ?>
+                    </div>
+                <?php endif; ?>
+            <?php endforeach; ?>
+        </div>
+    <?php endif; ?>
 </div>
 
 <?php get_footer(); ?>

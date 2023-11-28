@@ -20,7 +20,7 @@
 </main>
 <footer class="site-footer">
     <div class="site-footer__container">
-        <a href="/" data-aos="fade-in">
+        <a href="/">
             <div class="site-footer__logo-title">Miles Out There</div>
             <div class="site-footer__logo-tagline">Natalie &amp; Trevor</div>
         </a>
@@ -29,8 +29,6 @@
                 <a
                     href="<?= $link["href"]; ?>"
                     class="site-footer__link"
-                    data-aos="fade-in"
-                    data-aos-delay="<?= $index * 200; ?>"
                 >
                     <?= $link["title"]; ?>
                 </a>
