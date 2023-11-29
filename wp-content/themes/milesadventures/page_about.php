@@ -75,7 +75,6 @@
                             );
                         ?>
                     </a>
-                    <div class="pswp-caption-content"><b>Lorem ipsum dolor (1933)</b><br>Color photograph<br>12 x 10</div>
                 </div>
             <?php endforeach; ?>
         </div>
