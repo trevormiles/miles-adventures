@@ -1,7 +1,7 @@
 @use 'ma:utility';
 @use 'ma:foundation';
 
-.section-basic-gallery {
+.section-grid-gallery {
   display: grid;
   grid-template-columns: 1fr;
   gap: 1.5rem;

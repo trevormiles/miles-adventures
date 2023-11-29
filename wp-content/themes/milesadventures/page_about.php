@@ -43,7 +43,7 @@
         </div>
     </section>
     <?php if (count($galleryImages) > 0) : ?>
-        <div class="section-basic-gallery" data-comp-gallery-lightbox>
+        <div class="section-grid-gallery" data-comp-gallery-lightbox>
             <?php foreach ($galleryImages as $index => $galleryImage) : ?>
                 <?php
                     $fullSizeImage = wp_get_attachment_image_src($galleryImage['crb_gallery_image'], "full"); 
@@ -52,19 +52,26 @@
                     $imageHeight = $fullSizeImage[2];
                     $imageSrcSet = wp_get_attachment_image_srcset($galleryImage['crb_gallery_image']);
                 ?>
-                <div data-aos="fade-up" data-aos-delay="<?= ($index % 3) * 300 ?>" data-gallery-lightbox-item>
+                <div
+                    data-aos="fade-up"
+                    data-aos-delay="<?= ($index % 3) * 300 ?>"
+                    data-gallery-lightbox-item
+                    class="grid-gallery-item grid-gallery-item--tall"
+                >
                     <a
                         href="<?= $imageSrc; ?>"
                         data-pswp-width="<?= $imageWidth; ?>"
                         data-pswp-height="<?= $imageHeight; ?>"
                         data-pswp-srcset="<?= $imageSrcSet; ?>"
                         target="_blank"
+                        class="grid-gallery-item__image-container"
                     >
                         <?= 
                             wp_get_attachment_image(
                                 $galleryImage['crb_gallery_image'],
                                 'large',
                                 false,
+                                array('class' => 'grid-gallery-item__image')
                             );
                         ?>
                     </a>

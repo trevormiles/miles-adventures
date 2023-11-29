@@ -46,58 +46,69 @@
         <?php endif; ?>
     </section>
     <?php if (count($gallerySections) > 0) : ?>
-        <div>
+        <div class="section-adventure-galleries">
             <?php foreach ($gallerySections as $gallerySection) : ?>
-                <?php if ($gallerySection['crb_gallery_section_title']) : ?>
-                    <h2 data-aos="fade-up"><?= $gallerySection['crb_gallery_section_title'] ?></h2>
-                <?php endif; ?>
-                <?php if ($gallerySection['crb_gallery_section_description']) : ?>
-                    <p data-aos="fade-up"><?= $gallerySection['crb_gallery_section_description'] ?></p>
-                <?php endif; ?>
-                <?php if (count($gallerySection['crb_gallery_section']) > 0) : ?>
-                    <div class="section-basic-gallery" data-comp-gallery-lightbox>
-                        <?php foreach ($gallerySection['crb_gallery_section'] as $index => $galleryImage) : ?>
-                            <?php
-                                $fullSizeImage = wp_get_attachment_image_src(
-                                    $galleryImage['crb_gallery_section_image'],
-                                    "full"
-                                ); 
-                                $imageSrc = $fullSizeImage[0];
-                                $imageWidth = $fullSizeImage[1];
-                                $imageHeight = $fullSizeImage[2];
-                                $imageSrcSet = wp_get_attachment_image_srcset(
-                                    $galleryImage['crb_gallery_section_image']
-                                );
-                            ?>
-                            <div
-                                data-aos="fade-up"
-                                data-aos-delay="<?= ($index % 3) * 300 ?>"
-                                data-gallery-lightbox-item
-                            >
-                                <a
-                                    href="<?= $imageSrc; ?>"
-                                    data-pswp-width="<?= $imageWidth; ?>"
-                                    data-pswp-height="<?= $imageHeight; ?>"
-                                    data-pswp-srcset="<?= $imageSrcSet; ?>"
-                                    target="_blank"
-                                >
-                                    <?= 
-                                        wp_get_attachment_image(
-                                            $galleryImage['crb_gallery_section_image'],
-                                            'large',
-                                            false,
-                                        );
-                                    ?>
-                                </a>
-                                <?php if ($galleryImage['crb_gallery_image_caption']) : ?>
-                                    <div class="pswp-caption-content">
-                                        <?= $galleryImage['crb_gallery_image_caption']; ?>
-                                    </div>
-                                <?php endif; ?>
-                            </div>
-                        <?php endforeach; ?>
+                <div class="section-content-gallery">
+                    <div class="section-content-gallery__content">
+                        <?php if ($gallerySection['crb_gallery_section_title']) : ?>
+                            <h3 class="section-content-gallery__title" data-aos="fade-up">
+                                <?= $gallerySection['crb_gallery_section_title']; ?>
+                            </h3>
+                        <?php endif; ?>
+                        <?php if ($gallerySection['crb_gallery_section_description']) : ?>
+                            <p class="section-content-gallery__description" data-aos="fade-up">
+                                <?= $gallerySection['crb_gallery_section_description']; ?>
+                            </p>
+                        <?php endif; ?>
                     </div>
-                <?php endif; ?>
+                    <?php if (count($gallerySection['crb_gallery_section']) > 0) : ?>
+                        <div class="section-grid-gallery" data-comp-gallery-lightbox>
+                            <?php foreach ($gallerySection['crb_gallery_section'] as $index => $galleryImage) : ?>
+                                <?php
+                                    $fullSizeImage = wp_get_attachment_image_src(
+                                        $galleryImage['crb_gallery_section_image'],
+                                        "full"
+                                    ); 
+                                    $imageSrc = $fullSizeImage[0];
+                                    $imageWidth = $fullSizeImage[1];
+                                    $imageHeight = $fullSizeImage[2];
+                                    $imageSrcSet = wp_get_attachment_image_srcset(
+                                        $galleryImage['crb_gallery_section_image']
+                                    );
+                                ?>
+                                <div
+                                    data-aos="fade-up"
+                                    data-aos-delay="<?= ($index % 3) * 300 ?>"
+                                    data-gallery-lightbox-item
+                                    class="grid-gallery-item"
+                                >
+                                    <a
+                                        href="<?= $imageSrc; ?>"
+                                        data-pswp-width="<?= $imageWidth; ?>"
+                                        data-pswp-height="<?= $imageHeight; ?>"
+                                        data-pswp-srcset="<?= $imageSrcSet; ?>"
+                                        target="_blank"
+                                        class="grid-gallery-item__image-container"
+                                    >
+                                        <?= 
+                                            wp_get_attachment_image(
+                                                $galleryImage['crb_gallery_section_image'],
+                                                'large',
+                                                false,
+                                                array('class' => 'grid-gallery-item__image')
+                                            );
+                                        ?>
+                                    </a>
+                                    <?php if ($galleryImage['crb_gallery_image_caption']) : ?>
+                                        <div class="pswp-caption-content">
+                                            <?= $galleryImage['crb_gallery_image_caption']; ?>
+                                        </div>
+                                    <?php endif; ?>
+                                </div>
+                            <?php endforeach; ?>
+                        </div>
+                    <?php endif; ?>
+                </div>
             <?php endforeach; ?>
         </div>
     <?php endif; ?>

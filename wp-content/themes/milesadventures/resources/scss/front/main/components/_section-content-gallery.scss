@@ -1,0 +1,27 @@
+@use 'ma:utility';
+@use 'ma:foundation';
+
+.section-content-gallery {
+  margin: 2.5rem 0 4rem;
+
+  @include foundation.layout-breakpoint(b-5) {
+    margin: 8rem 0 11rem;
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  &__content {
+    margin-bottom: 2.25rem;
+  }
+
+  &__title {
+    margin: 0;
+  }
+
+  &__description {
+    max-width: 40rem;
+    margin: 0.75rem 0 2.75rem;
+  }
+}

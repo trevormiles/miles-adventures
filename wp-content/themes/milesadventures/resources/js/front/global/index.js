@@ -22,6 +22,7 @@ AOS.init({
 const lightbox = new PhotoSwipeLightbox({
   gallerySelector: '[data-comp-gallery-lightbox]',
   childSelector: '[data-gallery-lightbox-item]',
+  showHideAnimationType: 'fade',
   pswpModule: PhotoSwipe,
 });
 

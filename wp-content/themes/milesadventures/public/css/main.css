@@ -1152,7 +1152,40 @@ a:hover {
   height: 100%;
 }
 
-.section-basic-gallery {
+.section-adventure-galleries {
+  margin: 2.5rem 0 4rem;
+  /* stylelint-disable-next-line max-nesting-depth */
+}
+@media screen and (min-width: 87.5em) {
+  .section-adventure-galleries {
+    margin: 8rem 0 11rem;
+  }
+}
+
+.section-content-gallery {
+  margin: 2.5rem 0 4rem;
+  /* stylelint-disable-next-line max-nesting-depth */
+}
+@media screen and (min-width: 87.5em) {
+  .section-content-gallery {
+    margin: 8rem 0 11rem;
+  }
+}
+.section-content-gallery:last-child {
+  margin-bottom: 0;
+}
+.section-content-gallery__content {
+  margin-bottom: 2.25rem;
+}
+.section-content-gallery__title {
+  margin: 0;
+}
+.section-content-gallery__description {
+  max-width: 40rem;
+  margin: 0.75rem 0 2.75rem;
+}
+
+.section-grid-gallery {
   display: grid;
   grid-template-columns: 1fr;
   gap: 1.5rem;
@@ -1160,12 +1193,12 @@ a:hover {
   /* stylelint-disable-next-line max-nesting-depth */
 }
 @media screen and (min-width: 48em) {
-  .section-basic-gallery {
+  .section-grid-gallery {
     grid-template-columns: 1fr 1fr;
   }
 }
 @media screen and (min-width: 62em) {
-  .section-basic-gallery {
+  .section-grid-gallery {
     grid-template-columns: 1fr 1fr 1fr;
   }
 }
@@ -1212,4 +1245,48 @@ a:hover {
   .heading-button-flex__heading {
     margin-bottom: 0;
   }
+}
+
+.grid-gallery-item {
+  position: relative;
+  overflow: hidden;
+}
+.grid-gallery-item::before {
+  content: "";
+  display: block;
+  padding-top: 100%;
+  width: 100%;
+}
+.grid-gallery-item > * {
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+.grid-gallery-item:hover .grid-gallery-item__image, .grid-gallery-item:focus-visible .grid-gallery-item__image {
+  transform: scale(1.0325);
+}
+.grid-gallery-item__image {
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 100%;
+  height: 100%;
+  transition: 0.4s all ease !important;
+}
+.grid-gallery-item--tall {
+  position: relative;
+}
+.grid-gallery-item--tall::before {
+  content: "";
+  display: block;
+  padding-top: 133.5%;
+  width: 100%;
+}
+.grid-gallery-item--tall > * {
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
 }

@@ -1,0 +1,10 @@
+@use 'ma:utility';
+@use 'ma:foundation';
+
+.section-adventure-galleries {
+  margin: 2.5rem 0 4rem;
+
+  @include foundation.layout-breakpoint(b-5) {
+    margin: 8rem 0 11rem;
+  }
+}
