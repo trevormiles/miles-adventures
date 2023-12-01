@@ -17,6 +17,11 @@
 
       @include foundation.layout-breakpoint(b-5) {
         max-width: 30rem;
+        min-width: 20rem;
+      }
+
+      @include foundation.layout-breakpoint(b-6) {
+        min-width: 25rem;
       }
     }
 
