@@ -6,7 +6,7 @@
 
 <?php
     $heroImageId = carbon_get_the_post_meta( 'crb_hero_image' );
-    $galleryImages = carbon_get_the_post_meta( 'crb_gallery' );
+    $galleryImages = carbon_get_the_post_meta( 'crb_about_gallery' );
     $heroTitle = carbon_get_the_post_meta( 'crb_hero_heading' );
     $sectionTitle = carbon_get_the_post_meta( 'crb_section_heading' );
     $sectionContent = carbon_get_the_post_meta('crb_section_description');
@@ -46,11 +46,11 @@
         <div class="section-grid-gallery" data-comp-gallery-lightbox>
             <?php foreach ($galleryImages as $index => $galleryImage) : ?>
                 <?php
-                    $fullSizeImage = wp_get_attachment_image_src($galleryImage['crb_gallery_image'], "full"); 
+                    $fullSizeImage = wp_get_attachment_image_src($galleryImage, "full"); 
                     $imageSrc = $fullSizeImage[0];
                     $imageWidth = $fullSizeImage[1];
                     $imageHeight = $fullSizeImage[2];
-                    $imageSrcSet = wp_get_attachment_image_srcset($galleryImage['crb_gallery_image']);
+                    $imageSrcSet = wp_get_attachment_image_srcset($galleryImage);
                 ?>
                 <div
                     data-aos="fade-up"
@@ -68,7 +68,7 @@
                     >
                         <?= 
                             wp_get_attachment_image(
-                                $galleryImage['crb_gallery_image'],
+                                $galleryImage,
                                 'large',
                                 false,
                                 array('class' => 'grid-gallery-item__image')

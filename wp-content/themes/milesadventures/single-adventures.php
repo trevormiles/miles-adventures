@@ -65,16 +65,11 @@
                         <div class="section-grid-gallery" data-comp-gallery-lightbox>
                             <?php foreach ($gallerySection['crb_gallery_section'] as $index => $galleryImage) : ?>
                                 <?php
-                                    $fullSizeImage = wp_get_attachment_image_src(
-                                        $galleryImage['crb_gallery_section_image'],
-                                        "full"
-                                    ); 
+                                    $fullSizeImage = wp_get_attachment_image_src($galleryImage, "full"); 
                                     $imageSrc = $fullSizeImage[0];
                                     $imageWidth = $fullSizeImage[1];
                                     $imageHeight = $fullSizeImage[2];
-                                    $imageSrcSet = wp_get_attachment_image_srcset(
-                                        $galleryImage['crb_gallery_section_image']
-                                    );
+                                    $imageSrcSet = wp_get_attachment_image_srcset($galleryImage);
                                 ?>
                                 <div
                                     data-aos="fade-up"
@@ -92,18 +87,13 @@
                                     >
                                         <?= 
                                             wp_get_attachment_image(
-                                                $galleryImage['crb_gallery_section_image'],
+                                                $galleryImage,
                                                 'large',
                                                 false,
                                                 array('class' => 'grid-gallery-item__image')
                                             );
                                         ?>
                                     </a>
-                                    <?php if ($galleryImage['crb_gallery_image_caption']) : ?>
-                                        <div class="pswp-caption-content">
-                                            <?= $galleryImage['crb_gallery_image_caption']; ?>
-                                        </div>
-                                    <?php endif; ?>
                                 </div>
                             <?php endforeach; ?>
                         </div>
