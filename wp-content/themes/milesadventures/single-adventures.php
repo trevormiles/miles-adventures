@@ -70,6 +70,7 @@
                                     $imageWidth = $fullSizeImage[1];
                                     $imageHeight = $fullSizeImage[2];
                                     $imageSrcSet = wp_get_attachment_image_srcset($galleryImage);
+                                    $caption = wp_get_attachment_caption($galleryImage);
                                 ?>
                                 <div
                                     data-aos="fade-up"
@@ -94,6 +95,7 @@
                                             );
                                         ?>
                                     </a>
+                                    <div class="pswp-caption-content" data-pswp-caption><?= $caption; ?></div>
                                 </div>
                             <?php endforeach; ?>
                         </div>

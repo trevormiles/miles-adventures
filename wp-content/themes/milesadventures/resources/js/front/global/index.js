@@ -26,6 +26,10 @@ const lightbox = new PhotoSwipeLightbox({
   pswpModule: PhotoSwipe,
 });
 
-new PhotoSwipeDynamicCaption(lightbox);
+new PhotoSwipeDynamicCaption(lightbox, {
+  captionContent: (slide) => {
+    return slide.data.element.querySelector('[data-pswp-caption]')?.innerHTML;
+  }
+});
 
 lightbox.init();
