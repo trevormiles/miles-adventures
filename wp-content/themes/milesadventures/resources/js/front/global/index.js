@@ -24,6 +24,7 @@ const lightbox = new PhotoSwipeLightbox({
   childSelector: '[data-gallery-lightbox-item]',
   showHideAnimationType: 'fade',
   pswpModule: PhotoSwipe,
+  loop: false
 });
 
 new PhotoSwipeDynamicCaption(lightbox, {
