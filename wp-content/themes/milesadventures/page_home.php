@@ -48,7 +48,7 @@
         <div class="content-container content-container--2">
             <div class="heading-button-flex">
                 <h2 class="heading-button-flex__heading" data-aos="fade-up">Latest adventures</h2>
-                <a href="/past" class="btn btn--reversed" data-aos="fade-up" data-aos-delay="300">See all</a>
+                <a href="/past" class="btn btn--reversed" data-aos="fade-up" data-aos-delay="200">See all</a>
             </div>
             <div class="items-primary-grid">
                 <?php $index = 0; ?>
@@ -58,7 +58,7 @@
                         $description = carbon_get_the_post_meta('crb_description');
                         $featuredImageId = fallbackImageOnNull(carbon_get_the_post_meta('crb_featured_image'));
                     ?>
-                    <div class="item-preview-primary" data-aos="fade-up" data-aos-delay="<?= ($index % 3) * 300 ?>">
+                    <div class="item-preview-primary" data-aos="fade-up" data-aos-delay="<?= ($index % 3) * 100 ?>">
                         <a href="<?php the_permalink(); ?>" class="item-preview-primary__image-container">
                             <?= 
                                 wp_get_attachment_image(
@@ -84,7 +84,7 @@
         <div class="content-container content-container--2">
             <div class="heading-button-flex">
                 <h2 class="heading-button-flex__heading" data-aos="fade-up">Upcoming adventures</h2>
-                <a href="/upcoming" class="btn btn--reversed" data-aos="fade-up" data-aos-delay="300">See all</a>
+                <a href="/upcoming" class="btn btn--reversed" data-aos="fade-up" data-aos-delay="200">See all</a>
             </div>
             <div class="items-basic-grid">
                 <?php $index = 0; ?>
@@ -93,7 +93,7 @@
                         $upcomingAdventures->the_post();
                         $description = carbon_get_the_post_meta('crb_description');
                     ?>
-                    <div class="item-preview-basic" data-aos="fade-up" data-aos-delay="<?= ($index % 3) * 300 ?>">
+                    <div class="item-preview-basic" data-aos="fade-up" data-aos-delay="<?= ($index % 3) * 100 ?>">
                         <p class="item-preview-basic__date">
                             <?= formatAdventureDate(
                                 carbon_get_the_post_meta('crb_start_date'),

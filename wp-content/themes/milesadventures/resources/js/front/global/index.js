@@ -15,7 +15,7 @@ window.global = new ComponentLoader(document, [
 ]);
 
 AOS.init({
-  duration: 800,
+  duration: 600,
   once: true,
 });
 

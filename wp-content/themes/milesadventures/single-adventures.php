@@ -39,7 +39,7 @@
             <div
                 class="section-column-content__column section-column-content__column--last"
                 data-aos="fade-up"
-                data-aos-delay="300"
+                data-aos-delay="200"
             >
                 <?= apply_filters( 'the_content', $sectionContent); ?>
             </div>
@@ -74,7 +74,7 @@
                                 ?>
                                 <div
                                     data-aos="fade-up"
-                                    data-aos-delay="<?= ($index % 3) * 300 ?>"
+                                    data-aos-delay="<?= ($index % 3) * 100 ?>"
                                     data-gallery-lightbox-item
                                     class="grid-gallery-item"
                                 >

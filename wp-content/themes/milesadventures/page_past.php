@@ -29,7 +29,7 @@
                     $description = carbon_get_the_post_meta('crb_description');
                     $featuredImageId = fallbackImageOnNull(carbon_get_the_post_meta('crb_featured_image'));
                 ?>
-                <div class="item-preview-primary" data-aos="fade-up" data-aos-delay="<?= ($index % 3) * 300 ?>">
+                <div class="item-preview-primary" data-aos="fade-up" data-aos-delay="<?= ($index % 3) * 100 ?>">
                     <a href="<?php the_permalink(); ?>" class="item-preview-primary__image-container">
                         <?= 
                             wp_get_attachment_image(

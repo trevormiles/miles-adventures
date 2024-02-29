@@ -28,7 +28,7 @@
                     $upcomingAdventures->the_post();
                     $description = carbon_get_the_post_meta('crb_description');
                 ?>
-                <div class="item-preview-basic" data-aos="fade-up" data-aos-delay="<?= ($index % 3) * 300 ?>">
+                <div class="item-preview-basic" data-aos="fade-up" data-aos-delay="<?= ($index % 3) * 100 ?>">
                     <p class="item-preview-basic__date">
                         <?= formatAdventureDate(
                             carbon_get_the_post_meta('crb_start_date'),
