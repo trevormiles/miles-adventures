@@ -7,6 +7,7 @@
 @use 'items-basic-grid';
 @use 'item-preview-primary';
 @use 'item-preview-basic';
+@use 'item-preview-sample';
 @use 'section-page-header';
 @use 'section-column-content';
 @use 'section-featured-image';
@@ -16,3 +17,4 @@
 @use 'section-no-posts';
 @use 'heading-button-flex';
 @use 'grid-gallery-item';
+@use 'previous-next-layout';

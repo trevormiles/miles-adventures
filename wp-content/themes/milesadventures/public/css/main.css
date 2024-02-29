@@ -1078,6 +1078,71 @@ a:hover {
   margin-bottom: 0;
 }
 
+.item-preview-sample {
+  width: 100%;
+  height: 7.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+  color: #E9E3D8;
+  /* stylelint-disable-next-line max-nesting-depth */
+  /* stylelint-disable-next-line max-nesting-depth */
+}
+@media screen and (min-width: 62em) {
+  .item-preview-sample {
+    height: 10rem;
+  }
+}
+@media screen and (min-width: 75em) {
+  .item-preview-sample {
+    max-width: 50%;
+  }
+}
+.item-preview-sample:hover .item-preview-sample__image, .item-preview-sample:focus-visible .item-preview-sample__image {
+  transform: scale(1.0325);
+}
+.item-preview-sample:hover .item-preview-sample__content, .item-preview-sample:focus-visible .item-preview-sample__content {
+  color: #E9E3D8;
+}
+.item-preview-sample--previous {
+  margin-left: auto;
+}
+.item-preview-sample--previous .item-preview-sample__content {
+  text-align: right;
+  margin-left: auto;
+}
+.item-preview-sample__image {
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 100%;
+  height: 100%;
+  transition: 0.4s all ease !important;
+  position: absolute;
+  top: 0;
+  left: 1;
+  z-index: 1;
+  opacity: 0.875 !important;
+  mix-blend-mode: multiply;
+  filter: grayscale(100%);
+}
+.item-preview-sample__content {
+  position: relative;
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  z-index: 2;
+}
+.item-preview-sample__overline {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+.item-preview-sample__title {
+  margin-bottom: 0;
+}
+
 .section-page-header {
   margin-bottom: 2.5rem;
   /* stylelint-disable-next-line max-nesting-depth */
@@ -1296,4 +1361,18 @@ a:hover {
   position: absolute;
   right: 0;
   top: 0;
+}
+
+.previous-next-layout {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  gap: 1.25rem;
+  /* stylelint-disable-next-line max-nesting-depth */
+}
+@media screen and (min-width: 48em) {
+  .previous-next-layout {
+    flex-direction: row;
+    gap: 2rem;
+  }
 }

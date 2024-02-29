@@ -1,0 +1,14 @@
+@use 'ma:utility';
+@use 'ma:foundation';
+
+.previous-next-layout {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  gap: 1.25rem;
+
+  @include foundation.layout-breakpoint(b-2) {
+    flex-direction: row;
+    gap: 2rem;
+  }
+}

@@ -12,10 +12,10 @@ function formatAdventureDate(string $startDate, string $endDate) {
 function getPastAdventuresQuery(int $quantity = 3) {
     return new WP_Query(array(
         'post_type' => 'adventures',
-        'orderby' => 'text_field',
+        'orderby' => 'start_date',
         'order' => 'desc',
         'meta_query' => array(
-            'text_field' => array(
+            'start_date' => array(
                 'key' => 'crb_start_date',
                 'compare' => 'EXISTS',
             ),
@@ -33,10 +33,10 @@ function getPastAdventuresQuery(int $quantity = 3) {
 function getUpcomingAdventuresQuery(int $quantity = 6) {
     return new WP_Query(array(
         'post_type' => 'adventures',
-        'orderby' => 'text_field',
+        'orderby' => 'start_date',
         'order' => 'asc',
         'meta_query' => array(
-            'text_field' => array(
+            'start_date' => array(
                 'key' => 'crb_start_date',
                 'compare' => 'EXISTS',
             ),
@@ -74,10 +74,10 @@ function getCurrentAdventureQuery() {
 function getLatestAdventureQuery() {
     return new WP_Query(array(
         'post_type' => 'adventures',
-        'orderby' => 'text_field',
+        'orderby' => 'end_date',
         'order' => 'desc',
         'meta_query' => array(
-            'text_field' => array(
+            'end_date' => array(
                 'key' => 'crb_end_date',
                 'compare' => 'EXISTS',
             ),
@@ -85,6 +85,53 @@ function getLatestAdventureQuery() {
                 'key' => 'crb_end_date',
                 'compare' => '<',
                 'value' => date("Y-m-d"),
+            ),
+        ),
+        'post_status' => 'publish',
+        'posts_per_page' => 1,
+    ));
+}
+
+function getNextAdventure(string $endDate) {
+    return new WP_Query(array(
+        'post_type' => 'adventures',
+        'orderby' => 'start_date',
+        'order' => 'asc',
+        'meta_query' => array(
+            'start_date' => array(
+                'key' => 'crb_start_date',
+                'compare' => 'EXISTS',
+            ),
+            array(
+                'key' => 'crb_start_date',
+                'compare' => '>',
+                'value' => $endDate,
+            ),
+            array(
+                'key' => 'crb_start_date',
+                'compare' => '<',
+                'value' => date("Y-m-d"),
+            ),
+        ),
+        'post_status' => 'publish',
+        'posts_per_page' => 1,
+    ));
+}
+
+function getPreviousAdventure(string $startDate) {
+    return new WP_Query(array(
+        'post_type' => 'adventures',
+        'orderby' => 'start_date',
+        'order' => 'desc',
+        'meta_query' => array(
+            'start_date' => array(
+                'key' => 'crb_start_date',
+                'compare' => 'EXISTS',
+            ),
+            array(
+                'key' => 'crb_start_date',
+                'compare' => '<',
+                'value' => $startDate,
             ),
         ),
         'post_status' => 'publish',

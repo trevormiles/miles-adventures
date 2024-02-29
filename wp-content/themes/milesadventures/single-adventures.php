@@ -7,6 +7,9 @@
     $sectionTitle = carbon_get_the_post_meta( 'crb_section_title' );
     $sectionContent = carbon_get_the_post_meta('crb_section_content');
     $gallerySections = carbon_get_the_post_meta('crb_gallery_sections');
+    $nextAdventure = getNextAdventure($endDate);
+    $previousAdventure = getPreviousAdventure($startDate);
+    $pageBackgroundColor = carbon_get_the_post_meta( 'crb_page_background_color' );
 ?>
 
 <?php get_header(); ?>
@@ -104,6 +107,63 @@
             <?php endforeach; ?>
         </div>
     <?php endif; ?>
+    <div class="previous-next-layout">
+        <?php if ($nextAdventure->have_posts()) : ?>
+            <?php
+                $nextAdventure->the_post();
+                $featuredImageId = fallbackImageOnNull(carbon_get_the_post_meta('crb_featured_image'));
+            ?>
+            <a
+                href="<?= get_the_permalink(); ?>"
+                class="item-preview-sample item-preview-sample--next <?= $pageBackgroundColor; ?>"
+                data-aos="fade-up"
+            >
+                <div class="item-preview-sample__content">
+                    <?php echo file_get_contents( get_stylesheet_directory_uri() . '/resources/icons/arrow-left.svg' ); ?>
+                    <div>
+                        <div class="item-preview-sample__overline">Next Adventure</div>
+                        <h3 class="item-preview-sample__title"><?= get_the_title(); ?></h3>
+                    </div>
+                </div>
+                <?= 
+                    wp_get_attachment_image(
+                        $featuredImageId,
+                        'full',
+                        false,
+                        array('class' => 'item-preview-sample__image')
+                    );
+                ?>
+            </a>
+        <?php endif; ?>
+        <?php if ($previousAdventure->have_posts()) : ?>
+            <?php
+                $previousAdventure->the_post();
+                $featuredImageId = fallbackImageOnNull(carbon_get_the_post_meta('crb_featured_image'));
+            ?>
+            <a
+                href="<?= get_the_permalink(); ?>"
+                class="item-preview-sample item-preview-sample--previous <?= $pageBackgroundColor; ?>"
+                data-aos="fade-up"
+                data-aos-delay="200"
+            >
+                <div class="item-preview-sample__content">
+                    <div>
+                        <div class="item-preview-sample__overline">Previous Adventure</div>
+                        <h3 class="item-preview-sample__title"><?= get_the_title(); ?></h3>
+                    </div>
+                    <?php echo file_get_contents( get_stylesheet_directory_uri() . '/resources/icons/arrow-right.svg' ); ?>
+                </div>
+                <?= 
+                    wp_get_attachment_image(
+                        $featuredImageId,
+                        'full',
+                        false,
+                        array('class' => 'item-preview-sample__image')
+                    );
+                ?>
+            </a>
+        <?php endif; ?>
+    </div>
 </div>
 
 <?php get_footer(); ?>
