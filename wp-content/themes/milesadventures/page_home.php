@@ -37,7 +37,6 @@
                     <div class="home-hero__overline"><?= ucfirst($featuredAdventureType); ?> Adventure</div>
                     <h1><?php the_title(); ?></h1>
                     <p class="home-hero__description"><?= $description; ?></p>
-                    <a href="<?php the_permalink(); ?>" class="btn btn--solid-hover">Read More</a>
                 </div>
             </div>
         </section>
