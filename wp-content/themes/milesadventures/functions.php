@@ -9,16 +9,26 @@ use Carbon_Fields\Field;
 
 add_action( 'carbon_fields_register_fields', 'crb_attach_custom_fields' );
 function crb_attach_custom_fields() {
+    $aboutFields = array(
+        Field::make( 'text', 'crb_hero_heading', __( 'Hero Heading' ) ),
+        Field::make( 'image', 'crb_hero_image', __( 'Hero Image' ) ),
+        Field::make( 'text', 'crb_section_heading', __( 'Section Heading' ) )->set_width( 50 ),
+        Field::make( 'rich_text', 'crb_section_description', __( 'Section Description' ) )->set_width( 50 ),
+        Field::make( 'media_gallery', 'crb_about_gallery', __( 'Gallery' ) )
+    );
+
+    // Conditionally set required fields for the About page template
+    if (is_page_template( 'page-about.php')) {
+        $aboutFields[0]->set_required( true ); // Set Hero Heading as required
+        $aboutFields[1]->set_required( true ); // Set Hero Image as required
+        $aboutFields[2]->set_required( true ); // Set Section Heading as required
+        $aboutFields[3]->set_required( true ); // Set Section Description as required
+    }
+
     Container::make( 'post_meta', 'Page Content' )
         ->where( 'post_type', '=', 'page' )
-        ->where( 'post_template', '=', 'page_about.php' )
-        ->add_fields( array(
-            Field::make( 'text', 'crb_hero_heading', __( 'Hero Heading' ) )->set_required( true ),
-            Field::make( 'image', 'crb_hero_image', __( 'Hero Image' ) )->set_required( true ),
-            Field::make( 'text', 'crb_section_heading', __( 'Section Heading' ) )->set_width( 50 )->set_required( true ),
-            Field::make( 'rich_text', 'crb_section_description', __( 'Section Description' ) )->set_width( 50 )->set_required( true ),
-            Field::make( 'media_gallery', 'crb_about_gallery', __( 'Gallery' ) )
-        ));
+        ->where( 'post_template', '=', 'page-about.php' )
+        ->add_fields( $aboutFields );
 
     Container::make( 'post_meta', 'Page Content' )
         ->where( 'post_type', '=', 'page' )
