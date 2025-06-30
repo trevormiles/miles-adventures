@@ -27,7 +27,7 @@ function crb_attach_custom_fields() {
 
     Container::make( 'post_meta', 'Page Content' )
         ->where( 'post_type', '=', 'page' )
-        ->where( 'post_template', '=', 'page-about.php' )
+        ->where( 'post_template', '=', 'page_about.php' )
         ->add_fields( $aboutFields );
 
     Container::make( 'post_meta', 'Page Content' )
