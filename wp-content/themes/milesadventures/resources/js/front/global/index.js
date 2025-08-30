@@ -1,8 +1,8 @@
 import { ComponentLoader } from "@bythepixel/component-loader";
 import InViewSrc from "@bythepixel/in-view-src";
 import HeaderNav from "@Core/components/headerNav";
-import AOS from 'aos';
-import 'aos/dist/aos.css';
+// import AOS from 'aos';
+// import 'aos/dist/aos.css';
 import PhotoSwipeLightbox from "Photoswipe/dist/photoswipe-lightbox.esm.js";
 import PhotoSwipe from "Photoswipe/dist/photoswipe.esm.js";
 import 'Photoswipe/dist/photoswipe.css';
@@ -14,11 +14,13 @@ window.global = new ComponentLoader(document, [
   HeaderNav
 ]);
 
-AOS.init({
-  disable: "mobile",
-  duration: 600,
-  once: true,
-});
+// Temporarily commenting out due to problems
+// Possible fix: https://github.com/michalsnik/aos/issues/407
+// AOS.init({
+//   disable: "mobile",
+//   duration: 600,
+//   once: true,
+// });
 
 const lightbox = new PhotoSwipeLightbox({
   gallerySelector: '[data-comp-gallery-lightbox]',
