@@ -20,10 +20,12 @@
             $featuredAdventure->the_post();
             $description = carbon_get_the_post_meta('crb_description');
             $featuredImageId = fallbackImageOnNull(carbon_get_the_post_meta('crb_featured_image'));
+            $currentDate = date('Y-m-d');
+            $endDate = carbon_get_the_post_meta('crb_end_date');
         ?>
         <section class="home-hero">
             <div class="home-hero__image-container">
-                <?= 
+                <?=
                     wp_get_attachment_image(
                         $featuredImageId,
                         'full',
@@ -37,6 +39,9 @@
                     <div class="home-hero__overline"><?= ucfirst($featuredAdventureType); ?> Adventure</div>
                     <h1><?php the_title(); ?></h1>
                     <p class="home-hero__description"><?= $description; ?></p>
+                    <?php if ($currentDate > $endDate): ?>
+                        <a href="<?php the_permalink(); ?>" class="btn btn--solid-hover home-hero__cta-button">See More</a>
+                    <?php endif; ?>
                 </div>
             </div>
         </section>
@@ -59,7 +64,7 @@
                     ?>
                     <div class="item-preview-primary" data-aos="fade-up" data-aos-delay="<?= ($index % 3) * 100 ?>">
                         <a href="<?php the_permalink(); ?>" class="item-preview-primary__image-container">
-                            <?= 
+                            <?=
                                 wp_get_attachment_image(
                                     $featuredImageId,
                                     'large',
@@ -70,7 +75,7 @@
                         </a>
                         <h3><?php the_title(); ?></h3>
                         <p><?= $description; ?></p>
-                        <a href="<?php the_permalink(); ?>" class="btn">Read more</a>
+                        <a href="<?php the_permalink(); ?>" class="btn">See more</a>
                     </div>
                     <?php $index++; ?>
                 <?php endwhile; ?>

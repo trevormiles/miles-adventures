@@ -852,6 +852,10 @@ a:hover {
 .home-hero__description {
   font-size: 1.125rem;
   max-width: 49.0625rem;
+  margin-bottom: 0;
+}
+.home-hero__cta-button {
+  margin-top: 3rem;
 }
 .home-hero::after {
   z-index: 26;

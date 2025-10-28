@@ -54,6 +54,11 @@
   &__description {
     font-size: utility.rem(18px);
     max-width: utility.rem(785px);
+    margin-bottom: 0;
+  }
+
+  &__cta-button {
+    margin-top: 3rem;
   }
 
   &::after {
