@@ -40,7 +40,7 @@
                     <h1><?php the_title(); ?></h1>
                     <p class="home-hero__description"><?= $description; ?></p>
                     <?php if ($currentDate > $endDate): ?>
-                        <a href="<?php the_permalink(); ?>" class="btn btn--solid-hover home-hero__cta-button">See More</a>
+                        <a href="<?php the_permalink(); ?>" class="btn btn--solid-hover home-hero__cta-button">See more</a>
                     <?php endif; ?>
                 </div>
             </div>
